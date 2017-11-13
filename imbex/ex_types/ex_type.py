@@ -3,24 +3,27 @@ __copyright = 'Copyright 2009, IMB, RWTH Aachen'
 __date__ = 'Nov. 10, 2017'
 __status__ = 'Draft'
 
-from traits.api import HasStrictTraits, Int, Str, Float
+from traits.api import \
+    HasStrictTraits, Int, Str, Float
 import pandas as pd
+
 
 class SpecimenDimensions(HasStrictTraits):
 
-    height = Int(unit='mm')
+    height = Float(unit='mm')
 
-    length = Int(unit='mm')
+    length = Float(unit='mm')
 
-    width = Int(unit='mm')
+    width = Float(unit='mm')
 
-    diameter = Int(unit='mm')
+    diameter = Float(unit='mm')
 
-    bond_length = Int(unit='mm')
+    bond_length = Float(unit='mm')
 
     number_long_ri = Int
 
     number_stirrup = Int
+
 
 class Reinforcement(HasStrictTraits):
 
@@ -40,6 +43,7 @@ class Reinforcement(HasStrictTraits):
 
     strength_stirrup = Float(unit='MPa')
 
+
 class Concrete(HasStrictTraits):
 
     category_c = Str('B500')
@@ -53,3 +57,9 @@ class Concrete(HasStrictTraits):
     age_specimen = Int(unit='d')
 
 
+if __name__ == '__main__':
+    r = Reinforcement()
+
+    r.rho = 24.6
+
+    r.configure_traits()
