@@ -5,12 +5,11 @@ __status__ = 'Draft'
 
 import os
 
-from traits.api import\
-    HasStrictTraits, Float, Str, Int, Array, Property, cached_property
-
 import numpy as np
 import pandas as pd
 import pylab as p
+from traits.api import \
+    HasStrictTraits, Float, Str, Array, Property, cached_property
 
 
 # ---------------------------------------------------------------
@@ -22,11 +21,11 @@ class CylinderTest(HasStrictTraits):
     # input variables
     # ----------------------------------------------
 
-    # data = Array(np.float_, input=True)
+    data = Array(np.float_, input=True)
 
-    height = Int(300, unit='mm')
+    height = Float(300.0, unit='mm')
 
-    diameter = Int(100, unit='mm')
+    diameter = Float(100.0, unit='mm')
 
     category_c = Str('C120')
 
@@ -36,11 +35,11 @@ class CylinderTest(HasStrictTraits):
 
     date_test = pd.to_datetime('2017-11-01')
 
-    age_specimen = Int(56, unit='d')
+    age_specimen = Float(56.0, unit='d')
 
     loading_scenario = Str('LS1')
 
-    frequency = Int(5, unit='Hz')
+    frequency = Float(5.0, unit='Hz')
 
     loading_cycles = Str(100)
 
@@ -115,10 +114,11 @@ if __name__ == '__main__':
 
     # loads the *.csv file
     data = np.loadtxt(raw_data_dir, dtype=np.float, skiprows=2, converters={
-                      0: decimal_comma, 1: decimal_comma, 2: decimal_comma, 3: decimal_comma, 4: decimal_comma, 5: decimal_comma}, delimiter=';')
+        0: decimal_comma, 1: decimal_comma, 2: decimal_comma, 3: decimal_comma, 4: decimal_comma, 5: decimal_comma}, delimiter=';')
 
     # defines ct as instance of the class cylinder_test
     ct = CylinderTest(data=data)
+
 
     # definition of positions od subplots
     ax1 = p.subplot(3, 2, 1)
@@ -136,7 +136,7 @@ if __name__ == '__main__':
 
     delta_arg2 = 20
 
-    # derivatives df and ddf
+
     df = ct.f[2 * delta_arg2:] - ct.f[:-2 * delta_arg2]
     ddf = df[2 * delta_arg2:] - df[:-2 * delta_arg2]
 
@@ -150,8 +150,9 @@ if __name__ == '__main__':
     # print Df.shape
     # print ddf.shape
 
-    up_args_dd = np.where(((Df[1:] * Df[:-1] < df_threshold)
-                           * ((ddf[1:] + ddf[:-1]) / 2.0 < ddf_threshold)))[0]
+    # numpy.where returns indices where the given condition is True
+    up_args_dd = np.where(
+        ((Df[1:] * Df[:-1] < df_threshold) * ((ddf[1:] + ddf[:-1]) / 2.0 < ddf_threshold)))[0]
 
     up_args_d = up_args_dd + delta_arg2
 
@@ -192,3 +193,8 @@ if __name__ == '__main__':
         ax6.plot(ct.u[s_arg:e_arg], ct.f[s_arg:e_arg],)
 
     p.show()
+
+
+
+
+

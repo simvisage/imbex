@@ -5,10 +5,10 @@ __status__ = 'Draft'
 
 from traits.api import \
     HasStrictTraits, Int, Str, Float
+from traits.etsconfig.api import ETSConfig
 import pandas as pd
 
-
-class SpecimenDimensions(HasStrictTraits):
+class BeamEndTest (HasStrictTraits):
 
     height = Float(unit='mm')
 
@@ -16,13 +16,11 @@ class SpecimenDimensions(HasStrictTraits):
 
     width = Float(unit='mm')
 
-    diameter = Float(unit='mm')
-
     bond_length = Float(unit='mm')
 
-    number_long_ri = Int
+    number_longitudinal_ri = Int (1)
 
-    number_stirrup = Int
+    number_stirrup = Int (1)
 
 
 class Reinforcement(HasStrictTraits):
@@ -46,7 +44,7 @@ class Reinforcement(HasStrictTraits):
 
 class Concrete(HasStrictTraits):
 
-    category_c = Str('B500')
+    category_c = Str('C120')
 
     strength_c = Float(unit='MPa')
 
@@ -60,6 +58,5 @@ class Concrete(HasStrictTraits):
 if __name__ == '__main__':
     r = Reinforcement()
 
-    r.rho = 24.6
-
     r.configure_traits()
+
