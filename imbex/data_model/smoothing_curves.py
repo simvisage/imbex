@@ -1,3 +1,9 @@
+__author__ = 'campsb'
+__copyright = 'Copyright 2009, IMB, RWTH Aachen'
+__date__ = 'Nov. 17, 2017'
+__status__ = 'Final'
+
+
 import numpy as np
 import pylab as p
 from scipy.signal import argrelextrema
