@@ -19,8 +19,8 @@ port = 22
 transport = paramiko.Transport((host, port))
 
 # auth
-username = "ftp"
-password = "!mb1@FTP7"
+username = input ('Enter your username')
+password = input('Enter your password.')
 transport.connect(username = username, password = password)
 sftp = paramiko.SFTPClient.from_transport(transport)
 
