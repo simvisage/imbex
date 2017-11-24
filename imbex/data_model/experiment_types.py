@@ -1,6 +1,6 @@
 __author__ = 'campsb'
 __copyright = 'Copyright 2009, IMB, RWTH Aachen'
-__date__ = 'Nov. 17, 2017'
+__date__ = 'Nov. 23, 2017'
 __status__ = 'Draft'
 
 from traits.api import \
@@ -9,15 +9,16 @@ from traitsui.api import View, Item, Group
 import traitsui
 import pandas as pd
 import numpy as np
+import paramiko
+import os
 
 
-# --------------------------------------------------------------------------
-# definition of classes for the different experiment types and the materials
-# --------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# definition of classes for the different experiment types, materials, methods
+# -----------------------------------------------------------------------------
 
 
-class BeamEndTest (HasStrictTraits):
-
+class BeamEndTest(HasStrictTraits):
     height = Float(unit='mm')
 
     length = Float(unit='mm')
@@ -26,21 +27,20 @@ class BeamEndTest (HasStrictTraits):
 
     bond_length = Float(unit='mm')
 
-    number_longitudinal_ri = Int (1)
+    number_longitudinal_ri = Int(1)
 
-    number_stirrup = Int (1)
+    number_stirrup = Int(1)
 
-    traits_view = View(Group(Item(name = 'height'),
+    traits_view = View(Group(Item(name='height'),
                              Item(name='length'),
                              Item(name='width'),
                              Item(name='bond_length'),
                              Item(name='number_longitudinal_ri'),
                              Item(name='number_stirrup'),
-                             label = 'Beam End', show_border = True))
+                             label='Beam End', show_border=True))
 
 
 class Reinforcement(HasStrictTraits):
-
     diameter_long_ri = Int(unit='mm')
 
     diameter_stirrup = Int(unit='mm')
@@ -59,7 +59,6 @@ class Reinforcement(HasStrictTraits):
 
 
 class Concrete(HasStrictTraits):
-
     category_c = Str('C120')
 
     strength_c = Float(unit='MPa')
@@ -72,8 +71,7 @@ class Concrete(HasStrictTraits):
 
 
 class CylinderTest(HasStrictTraits):
-
-    #-----------------------------------------------
+    # -----------------------------------------------
     # input variables
     # ----------------------------------------------
 
@@ -108,7 +106,7 @@ class CylinderTest(HasStrictTraits):
     # index of maximum force f_max
     @cached_property
     def _get_argmax_force(self):
-        f = data[:, 1]
+        f = self.data[:, 1]
         return np.argmin(f)
 
     t = Property(depends_on='+input')
@@ -154,14 +152,40 @@ class CylinderTest(HasStrictTraits):
         return self.data[:self.argmax_force, 5]
 
 
-if __name__ == '__main__':
+# class for SFTP connection using paramiko
+class SFTPConnection(HasTraits):
+    username = Str(desc="username",
+                   label="username", )
 
-    be = BeamEndTest()
+    password = Str(desc="password",
+                   label="password", )
 
-    be.height = 100
+    traits_view = View(Group(Item(name='username'),
+                             Item(name='password'),
+                             label='authentication',
+                             show_border=True))
 
-    be.configure_traits()
+    def output(self):
+        print('Loged in as user "%s" with password "%s".' % (
+            self.username, self.password))
 
+    # returns a SFTP-Connection with given arguments
+    def __init__(self, test, filepath, localpath):
+        self.test = test
+        self.host = "134.130.81.25"
+        self.port = 22
+        self.filepath = filepath
+        self.localpath = localpath
 
+    # returns the path of the local file after downloading it from the server
+    def connect(self):
+        global sftp
+        global transport
+        transport = paramiko.Transport(self.host, self.port)
+        transport.connect(username=self.username, password=self.password)
+        sftp = paramiko.SFTPClient.from_transport(transport)
+        sftp.get(self.filepath, self.localpath)
+        return self.localpath
 
-
+    def disconnect(self):
+        return [sftp.close(), transport.close()]
