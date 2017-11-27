@@ -11,12 +11,12 @@ from traitsui.api import View, Item, Group
 from traitsui.menu import OKButton, CancelButton
 
 
-
 # -----------------------------------------------------------------------------
 # definition of classes for the different experiment types, materials, methods
 # -----------------------------------------------------------------------------
 
 
+# class defining the beam-end tests
 class BeamEndTest(traits.api.HasStrictTraits):
     height = traits.api.Float(unit='mm')
 
@@ -39,6 +39,7 @@ class BeamEndTest(traits.api.HasStrictTraits):
                              label='Beam End', show_border=True))
 
 
+# class defining the reinforcement
 class Reinforcement(traits.api.HasStrictTraits):
     diameter_long_ri = traits.api.Int(unit='mm')
 
@@ -57,6 +58,7 @@ class Reinforcement(traits.api.HasStrictTraits):
     strength_stirrup = traits.api.Float(unit='MPa')
 
 
+# class defining the concrete
 class Concrete(traits.api.HasStrictTraits):
     category_c = traits.api.Str('C120')
 
@@ -69,11 +71,9 @@ class Concrete(traits.api.HasStrictTraits):
     age_specimen = traits.api.Int(unit='d')
 
 
+# class defining the cylinder tests
 class CylinderTest(traits.api.HasStrictTraits):
-    # -----------------------------------------------
     # input variables
-    # ----------------------------------------------
-
     data = traits.api.Array(np.float_, input=True)
 
     height = traits.api.Float(300.0, unit='mm')
@@ -96,10 +96,7 @@ class CylinderTest(traits.api.HasStrictTraits):
 
     loading_cycles = traits.api.Str(100)
 
-    # -----------------------------------------------
-    # property / cached_property
-    # -----------------------------------------------
-
+    # properties / cached_properties
     argmax_force = traits.api.Property(depends_on='+input')
 
     # index of maximum force f_max
@@ -153,6 +150,7 @@ class CylinderTest(traits.api.HasStrictTraits):
 
 # class for SFTP connection using paramiko
 class SFTPConnection(traits.api.HasTraits):
+    # input variables
     username = traits.api.Str('ftp',
                               desc="username",
                               label="username", )
@@ -160,10 +158,12 @@ class SFTPConnection(traits.api.HasTraits):
     password = traits.api.Str(desc="password",
                               label="password", )
 
+    # definition of pop-up window
     traits_view = View(Item(name='username'),
                        Item(name='password'),
-                       buttons = [OKButton, CancelButton])
+                       buttons=[OKButton, CancelButton])
 
+    # prints the entered username and password
     def check_authentication(self):
         print('Loged in as user "%s" with password "%s".' % (
             self.username, self.password))
@@ -186,24 +186,27 @@ class SFTPConnection(traits.api.HasTraits):
         sftp.get(self.filepath, self.localpath)
         return self.localpath
 
+    # function to disconnect
     def disconnect(self):
         return [sftp.close(), transport.close()]
 
 
 # class defining the requested test
 class RequestedTest(traits.api.HasTraits):
-
-
+    # input variable
     test_name = traits.api.Str('CT_120_1_', desc="test name",
-                              label="test name", )
+                               label="test name", )
 
+    # definition of pop-up window
     traits_view = View(Item(name='test_name'),
-                             buttons = [OKButton, CancelButton])
+                       buttons=[OKButton, CancelButton])
 
+    # returns the global variable test
     def output_test(self):
         global test
         test = self.test_name
         return test
 
+    # prints the entered test name
     def check_test_name(self):
         print('Requested test: %s' % self.test_name)
