@@ -4,29 +4,30 @@ __date__ = 'Nov. 16, 2017'
 __status__ = 'Draft'
 
 import numpy as np
-from traits.api import\
-    HasStrictTraits, Float, Str, Int, Array, Property, cached_property
 import pandas as pd
 import pylab as p
 import os
-import paramiko
-from experiment_types import CylinderTest, SFTPConnection
-# note os works only local and not in combination with remote server
+from experiment_types import CylinderTest, SFTPConnection, RequestedTest
+
 
 if __name__ == '__main__':
 
-    # name of the considered test
-    test = 'CT_120_1_14'
+    # name of the requested test
+    rt = RequestedTest()
 
-    filepath = '/home/ftp/austausch_chudoba/raw_data/%s.csv' % test
-    localpath = './%s.csv' % test
+    rt.configure_traits()
+
+    rt.check_test_name()
+
+    filepath = '/home/ftp/austausch_chudoba/raw_data/%s.csv' % rt.output_test()
+    localpath = './%s.csv' % rt.output_test()
 
     # SC: server connection is instance of class SFTPConnection
-    sc = SFTPConnection(test, filepath, localpath)
+    sc = SFTPConnection(rt.output_test(), filepath, localpath)
 
     sc.configure_traits()
 
-    sc.output()
+    sc.check_authentication()
 
     names = ['Zeit [s]', 'Kraft [kN]', 'Maschinenweg [mm]', 'WA_1 [mm]', 'WA_2 [mm]', 'WA_3 [mm]']
 
