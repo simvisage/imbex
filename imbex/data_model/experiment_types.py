@@ -3,32 +3,31 @@ __copyright = 'Copyright 2009, IMB, RWTH Aachen'
 __date__ = 'Nov. 23, 2017'
 __status__ = 'Draft'
 
-import numpy as np
-import pandas as pd
 import paramiko
-import traits.api
 from traitsui.api import View, Item, Group
 from traitsui.menu import OKButton, CancelButton
+
+import numpy as np
+import pandas as pd
+import traits.api as tr
 
 
 # -----------------------------------------------------------------------------
 # definition of classes for the different experiment types, materials, methods
 # -----------------------------------------------------------------------------
-
-
 # class defining the beam-end tests
-class BeamEndTest(traits.api.HasStrictTraits):
-    height = traits.api.Float(unit='mm')
+class BeamEndTest(tr.HasStrictTraits):
+    height = tr.Float(unit='mm')
 
-    length = traits.api.Float(unit='mm')
+    length = tr.Float(unit='mm')
 
-    width = traits.api.Float(unit='mm')
+    width = tr.Float(unit='mm')
 
-    bond_length = traits.api.Float(unit='mm')
+    bond_length = tr.Float(unit='mm')
 
-    number_longitudinal_ri = traits.api.Int(1)
+    number_longitudinal_ri = tr.Int(1)
 
-    number_stirrup = traits.api.Int(1)
+    number_stirrup = tr.Int(1)
 
     traits_view = View(Group(Item(name='height'),
                              Item(name='length'),
@@ -40,127 +39,127 @@ class BeamEndTest(traits.api.HasStrictTraits):
 
 
 # class defining the reinforcement
-class Reinforcement(traits.api.HasStrictTraits):
-    diameter_long_ri = traits.api.Int(unit='mm')
+class Reinforcement(tr.HasStrictTraits):
+    diameter_long_ri = tr.Int(unit='mm')
 
-    diameter_stirrup = traits.api.Int(unit='mm')
+    diameter_stirrup = tr.Int(unit='mm')
 
-    material_long_ri = traits.api.Str('Steel')
+    material_long_ri = tr.Str('Steel')
 
-    material_stirrup = traits.api.Str('Steel')
+    material_stirrup = tr.Str('Steel')
 
-    category_long_ri = traits.api.Str('B500')
+    category_long_ri = tr.Str('B500')
 
-    category_stirrup = traits.api.Str('B500')
+    category_stirrup = tr.Str('B500')
 
-    strength_long_ri = traits.api.Float(unit='MPa')
+    strength_long_ri = tr.Float(unit='MPa')
 
-    strength_stirrup = traits.api.Float(unit='MPa')
+    strength_stirrup = tr.Float(unit='MPa')
 
 
 # class defining the concrete
-class Concrete(traits.api.HasStrictTraits):
-    category_c = traits.api.Str('C120')
+class Concrete(tr.HasStrictTraits):
+    category_c = tr.Str('C120')
 
-    strength_c = traits.api.Float(unit='MPa')
+    strength_c = tr.Float(unit='MPa')
 
     date_production = pd.to_datetime('2017-10-01')
 
     date_test = pd.to_datetime('2017-11-01')
 
-    age_specimen = traits.api.Int(unit='d')
+    age_specimen = tr.Int(unit='d')
 
 
 # class defining the cylinder tests
-class CylinderTest(traits.api.HasStrictTraits):
+class CylinderTest(tr.HasStrictTraits):
     # input variables
-    data = traits.api.Array(np.float_, input=True)
+    data = tr.Array(np.float_, input=True)
 
-    height = traits.api.Float(300.0, unit='mm')
+    height = tr.Float(300.0, unit='mm')
 
-    diameter = traits.api.Float(100.0, unit='mm')
+    diameter = tr.Float(100.0, unit='mm')
 
-    category_c = traits.api.Str('C120')
+    category_c = tr.Str('C120')
 
-    strength_c = traits.api.Float(120.0, unit='MPa')
+    strength_c = tr.Float(120.0, unit='MPa')
 
     date_production = pd.to_datetime('2017-10-01')
 
     date_test = pd.to_datetime('2017-11-01')
 
-    age_specimen = traits.api.Float(56.0, unit='d')
+    age_specimen = tr.Float(56.0, unit='d')
 
-    loading_scenario = traits.api.Str('LS1')
+    loading_scenario = tr.Str('LS1')
 
-    frequency = traits.api.Float(5.0, unit='Hz')
+    frequency = tr.Float(5.0, unit='Hz')
 
-    loading_cycles = traits.api.Str(100)
+    loading_cycles = tr.Str(100)
 
     # properties / cached_properties
-    argmax_force = traits.api.Property(depends_on='+input')
+    argmax_force = tr.Property(depends_on='+input')
 
     # index of maximum force f_max
-    @traits.api.cached_property
+    @tr.cached_property
     def _get_argmax_force(self):
         f = self.data[:, 1]
         return np.argmin(f)
 
-    t = traits.api.Property(depends_on='+input')
+    t = tr.Property(depends_on='+input')
 
     # time at f_max
-    @traits.api.cached_property
+    @tr.cached_property
     def _get_t(self):
         return self.data[:self.argmax_force, 0]
 
-    f = traits.api.Property(depends_on='+input')
+    f = tr.Property(depends_on='+input')
 
     # maximum force f_max
-    @traits.api.cached_property
+    @tr.cached_property
     def _get_f(self):
         return -self.data[:self.argmax_force, 1]
 
-    u = traits.api.Property(depends_on='+input')
+    u = tr.Property(depends_on='+input')
 
     # machine displacement at f_max
-    @traits.api.cached_property
+    @tr.cached_property
     def _get_u(self):
         return -self.data[:self.argmax_force, 2]
 
-    wa1 = traits.api.Property(depends_on='+input')
+    wa1 = tr.Property(depends_on='+input')
 
     # gauge 1 displacement at f_max
-    @traits.api.cached_property
+    @tr.cached_property
     def _get_wa1(self):
         return self.data[:self.argmax_force, 3]
 
-    wa2 = traits.api.Property(depends_on='+input')
+    wa2 = tr.Property(depends_on='+input')
 
     # gauge 2 displacement at f_max
-    @traits.api.cached_property
+    @tr.cached_property
     def _get_wa2(self):
         return self.data[:self.argmax_force, 4]
 
-    wa3 = traits.api.Property(depends_on='+input')
+    wa3 = tr.Property(depends_on='+input')
 
     # gauge 3 displacement at f_max
-    @traits.api.cached_property
+    @tr.cached_property
     def _get_wa3(self):
         return self.data[:self.argmax_force, 5]
 
 
 # class for SFTP connection using paramiko
-class SFTPConnection(traits.api.HasTraits):
+class SFTPConnection(tr.HasTraits):
     # input variables
-    username = traits.api.Str('ftp',
-                              desc="username",
-                              label="username", )
+    username = tr.Str('ftp',
+                      desc="username",
+                      label="username", )
 
-    password = traits.api.Str(desc="password",
-                              label="password", )
+    password = tr.Password(desc="password",
+                           label="password", )
 
     # definition of pop-up window
     traits_view = View(Item(name='username'),
-                       Item(name='password'),
+                       Item(name='password', style='simple', label='Password'),
                        buttons=[OKButton, CancelButton])
 
     # prints the entered username and password
@@ -191,11 +190,13 @@ class SFTPConnection(traits.api.HasTraits):
         return [sftp.close(), transport.close()]
 
 
-# class defining the requested test
-class RequestedTest(traits.api.HasTraits):
-    # input variable
-    test_name = traits.api.Str('CT_120_1_', desc="test name",
-                               label="test name", )
+class RequestedTest(tr.HasTraits):
+    '''class defining the requested test
+    '''
+    test_name = tr.Str('CT_120_1_', desc="test name",
+                       label="test name", )
+    '''input variable
+    '''
 
     # definition of pop-up window
     traits_view = View(Item(name='test_name'),

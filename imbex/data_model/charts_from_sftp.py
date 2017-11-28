@@ -3,11 +3,12 @@ __copyright = 'Copyright 2009, IMB, RWTH Aachen'
 __date__ = 'Nov. 16, 2017'
 __status__ = 'Draft'
 
+import os
+
+from experiment_types import CylinderTest, SFTPConnection, RequestedTest
 import numpy as np
 import pandas as pd
 import pylab as p
-import os
-from experiment_types import CylinderTest, SFTPConnection, RequestedTest
 
 
 if __name__ == '__main__':
@@ -29,7 +30,8 @@ if __name__ == '__main__':
 
     sc.check_authentication()
 
-    names = ['Zeit [s]', 'Kraft [kN]', 'Maschinenweg [mm]', 'WA_1 [mm]', 'WA_2 [mm]', 'WA_3 [mm]']
+    names = ['Zeit [s]', 'Kraft [kN]', 'Maschinenweg [mm]',
+             'WA_1 [mm]', 'WA_2 [mm]', 'WA_3 [mm]']
 
     F = names[1]
     WA_1 = names[3]
@@ -38,7 +40,8 @@ if __name__ == '__main__':
 
     columns_to_keep = [0, 1, 2, 3, 4, 5]
 
-    data2 = pd.read_csv(sc.connect(), sep=';', decimal=',', skiprows=2, nrows=None, usecols=columns_to_keep)
+    data2 = pd.read_csv(sc.connect(), sep=';', decimal=',',
+                        skiprows=2, nrows=None, usecols=columns_to_keep)
 
     data1 = data2.as_matrix(columns=None)
     data0 = data1[::]
@@ -75,7 +78,7 @@ if __name__ == '__main__':
     dt_t = ct.t[2 * delta_arg2:-2 * delta_arg2]
 
     ax2.plot(ct.t[delta_arg2:-delta_arg2], df)
-    ax5.plot(ct.t[2*delta_arg2:-2*delta_arg2], ddf)
+    ax5.plot(ct.t[2 * delta_arg2:-2 * delta_arg2], ddf)
 
     df_threshold = 0.0
     ddf_threshold = 0.0
@@ -105,16 +108,20 @@ if __name__ == '__main__':
     wa3_envelope_up = np.hstack([ct.wa3[:up_args[0]], ct.wa3[up_args[1:]]])
 
     t_envelope_down = np.hstack([ct.t[:down_args[0]], ct.t[down_args[1:]]])
-    wa1_envelope_down = np.hstack([ct.wa1[:down_args[0]], ct.wa1[down_args[1:]]])
-    wa2_envelope_down = np.hstack([ct.wa2[:down_args[0]], ct.wa2[down_args[1:]]])
-    wa3_envelope_down = np.hstack([ct.wa3[:down_args[0]], ct.wa3[down_args[1:]]])
+    wa1_envelope_down = np.hstack(
+        [ct.wa1[:down_args[0]], ct.wa1[down_args[1:]]])
+    wa2_envelope_down = np.hstack(
+        [ct.wa2[:down_args[0]], ct.wa2[down_args[1:]]])
+    wa3_envelope_down = np.hstack(
+        [ct.wa3[:down_args[0]], ct.wa3[down_args[1:]]])
 
     ax4.plot(t_envelope_up, wa1_envelope_up, 'g')
     ax4.plot(t_envelope_up, wa2_envelope_up, 'r')
     ax4.plot(t_envelope_up, wa3_envelope_up, 'b')
 
-    wa_env_avg_up = (wa1_envelope_up+wa2_envelope_up+wa3_envelope_up)/3
-    wa_env_avg_down = (wa1_envelope_down+wa2_envelope_down+wa3_envelope_down)/3
+    wa_env_avg_up = (wa1_envelope_up + wa2_envelope_up + wa3_envelope_up) / 3
+    wa_env_avg_down = (wa1_envelope_down +
+                       wa2_envelope_down + wa3_envelope_down) / 3
 
     ax4.plot(t_envelope_down, wa1_envelope_down, 'g')
     ax4.plot(t_envelope_down, wa2_envelope_down, 'r')
