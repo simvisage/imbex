@@ -1,6 +1,6 @@
 __author__ = 'campsb'
 __copyright = 'Copyright 2009, IMB, RWTH Aachen'
-__date__ = 'Nov. 23, 2017'
+__date__ = 'Nov. 30, 2017'
 __status__ = 'Draft'
 
 
@@ -16,65 +16,6 @@ from traitsui.menu import OKButton, CancelButton
 # -----------------------------------------------------------------------------
 # definition of classes for the different experiment types, materials, methods
 # -----------------------------------------------------------------------------
-
-
-class BeamEndTest(tr.HasStrictTraits):
-    """ Defines the Beam-End test class """
-
-    height = tr.Float(unit='mm')
-
-    length = tr.Float(unit='mm')
-
-    width = tr.Float(unit='mm')
-
-    bond_length = tr.Float(unit='mm')
-
-    number_longitudinal_ri = tr.Int(1)
-
-    number_stirrup = tr.Int(1)
-
-    traits_view = View(Group(Item(name='height'),
-                             Item(name='length'),
-                             Item(name='width'),
-                             Item(name='bond_length'),
-                             Item(name='number_longitudinal_ri'),
-                             Item(name='number_stirrup'),
-                             label='Beam End', show_border=True))
-
-
-class Reinforcement(tr.HasStrictTraits):
-    """ Defines the Reinforcement class """
-
-    diameter_long_ri = tr.Int(unit='mm')
-
-    diameter_stirrup = tr.Int(unit='mm')
-
-    material_long_ri = tr.Str('Steel')
-
-    material_stirrup = tr.Str('Steel')
-
-    category_long_ri = tr.Str('B500')
-
-    category_stirrup = tr.Str('B500')
-
-    strength_long_ri = tr.Float(unit='MPa')
-
-    strength_stirrup = tr.Float(unit='MPa')
-
-
-class Concrete(tr.HasStrictTraits):
-    """ Defines the Concrete class """
-
-    category_c = tr.Str('C120')
-
-    strength_c = tr.Float(unit='MPa')
-
-    date_production = pd.to_datetime('2017-10-01')
-
-    date_test = pd.to_datetime('2017-11-01')
-
-    age_specimen = tr.Int(unit='d')
-
 
 class CylinderTest(tr.HasStrictTraits):
     """ Defines the Cylinder Test class """
@@ -230,58 +171,3 @@ class RequestedTest(tr.HasTraits):
     # prints the entered test name
     def check_input(self):
         print('Requested test: %s' % self.list)
-
-
-
-# class TestType(tr.HasTraits):
-#     ''' class for dynamic redefinition of test list
-#     '''
-#     CT_list = tr.List()
-#     BE_list = tr.List()
-#     SR_list = tr.List()
-#
-#     test_type_list = {
-#         'Cylinder Tests': CT_list,
-#         'Beam-End Tests': BE_list,
-#         'Stress-Redistribution Tests': SR_list
-#     }
-#     test_type = tr.Enum(list(test_type_list())[0], list(test_type_list()))
-#     test = tr.Str
-#
-#     view = View(
-#         Item(name='test_type_list'),
-#         Item(name='test',
-#              editor=EnumEditor(name='handler.test_list'),
-#              ),
-#         title='Test type information',
-#         buttons=['OK'],
-#         resizable = True,
-#         handler=TestHandler
-#     )
-#     # test_type = Enum()
-#     def list_output(self):
-#         return self.CT_list
-#
-#
-# class TestHandler(Handler):
-#     """
-#     Handler class to redefine the possible values of 'city' based on 'state'.
-#     This handler will be assigned to a view of an Address, and can listen and
-#     respond to changes in the viewed Address.
-#     """
-#
-#     # Current list of available cities:
-#     test_list = tr.List(tr.Str)
-#
-#     def object_test_type_changed(self, info):
-#         """
-#         This method listens for a change in the *state* attribute of the
-#         object (Address) being viewed.
-#         When this listener method is called, *info.object* is a reference to
-#         the viewed object (Address).
-#         """
-#         # Change the list of available cities
-#         self.tests = tests[info.object.test_type]
-#
-#         # As default value, use the first city in the list:
-#         info.object.test = self.tests[0]
