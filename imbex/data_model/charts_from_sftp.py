@@ -3,56 +3,64 @@ __copyright = 'Copyright 2009, IMB, RWTH Aachen'
 __date__ = 'Nov. 16, 2017'
 __status__ = 'Draft'
 
-import os
 
-from experiment_types import CylinderTest, SFTPConnection, RequestedTest
+# imports
 import numpy as np
 import pandas as pd
 import pylab as p
+import os
+from experiment_types import CylinderTest, SFTPConnection, RequestedTest
 
 
 if __name__ == '__main__':
 
-    # name of the requested test
-    rt = RequestedTest()
-
-    rt.configure_traits()
-
-    rt.check_test_name()
-
-    filepath = '/home/ftp/austausch_chudoba/raw_data/%s.csv' % rt.output_test()
-    localpath = './%s.csv' % rt.output_test()
-
-    # SC: server connection is instance of class SFTPConnection
-    sc = SFTPConnection(rt.output_test(), filepath, localpath)
-
+    # sc = server connection instances connects to ftp server defined in class SFTPConnection
+    sc = SFTPConnection()
     sc.configure_traits()
+    sc.check_inputs()
 
-    sc.check_authentication()
+    # directory with files to be listed in the drop-down list
+    directory = sc.requested_directory()
 
-    names = ['Zeit [s]', 'Kraft [kN]', 'Maschinenweg [mm]',
-             'WA_1 [mm]', 'WA_2 [mm]', 'WA_3 [mm]']
+    # list of files in the requested directory
+    file_list1 = sc.list_files(directory)
+
+    # rt = instance to generate the drop-down list
+    rt = RequestedTest(file_list=sc.list_files(directory))
+    rt.configure_traits()
+    rt.check_input()
+
+    # test type chosen be user from first dialog box
+    test_type = sc.output_test_type()
+
+    # test type chosen be user from drop-down dialog box
+    test = rt.output_test()
+
+    names = ['Zeit [s]', 'Kraft [kN]', 'Maschinenweg [mm]', 'WA_1 [mm]', 'WA_2 [mm]', 'WA_3 [mm]']
 
     F = names[1]
     WA_1 = names[3]
     WA_2 = names[4]
     WA_3 = names[5]
 
+    # Caution: modification of this list have also be done in Cylinder-Test class
+    # this was planned to reduce the read data by excluding columns
     columns_to_keep = [0, 1, 2, 3, 4, 5]
 
-    data2 = pd.read_csv(sc.connect(), sep=';', decimal=',',
-                        skiprows=2, nrows=None, usecols=columns_to_keep)
+    # raw data is read using pandas and returned as DataFrame
+    dataframe = pd.read_csv(sc.transport_file(test_type, test), sep=';', decimal=',', skiprows=2, nrows=None, usecols=columns_to_keep)
 
-    data1 = data2.as_matrix(columns=None)
-    data0 = data1[::]
+    # converts DataFrame to Numpy array
+    data = dataframe.as_matrix(columns=None)
 
     # defines ct as instance of the class cylinder_test
-    ct = CylinderTest(data=data0)
+    ct = CylinderTest(data=data)
 
     # disconnects from sftp-server
     sc.disconnect()
+
     # deletes the local file
-    os.remove(sc.connect())
+    os.remove(sc.local_raw_file())
 
     # definition of positions od subplots
     # ax1 = p.subplot(1, 1, 1)
@@ -78,7 +86,7 @@ if __name__ == '__main__':
     dt_t = ct.t[2 * delta_arg2:-2 * delta_arg2]
 
     ax2.plot(ct.t[delta_arg2:-delta_arg2], df)
-    ax5.plot(ct.t[2 * delta_arg2:-2 * delta_arg2], ddf)
+    ax5.plot(ct.t[2*delta_arg2:-2*delta_arg2], ddf)
 
     df_threshold = 0.0
     ddf_threshold = 0.0
@@ -108,20 +116,16 @@ if __name__ == '__main__':
     wa3_envelope_up = np.hstack([ct.wa3[:up_args[0]], ct.wa3[up_args[1:]]])
 
     t_envelope_down = np.hstack([ct.t[:down_args[0]], ct.t[down_args[1:]]])
-    wa1_envelope_down = np.hstack(
-        [ct.wa1[:down_args[0]], ct.wa1[down_args[1:]]])
-    wa2_envelope_down = np.hstack(
-        [ct.wa2[:down_args[0]], ct.wa2[down_args[1:]]])
-    wa3_envelope_down = np.hstack(
-        [ct.wa3[:down_args[0]], ct.wa3[down_args[1:]]])
+    wa1_envelope_down = np.hstack([ct.wa1[:down_args[0]], ct.wa1[down_args[1:]]])
+    wa2_envelope_down = np.hstack([ct.wa2[:down_args[0]], ct.wa2[down_args[1:]]])
+    wa3_envelope_down = np.hstack([ct.wa3[:down_args[0]], ct.wa3[down_args[1:]]])
 
     ax4.plot(t_envelope_up, wa1_envelope_up, 'g')
     ax4.plot(t_envelope_up, wa2_envelope_up, 'r')
     ax4.plot(t_envelope_up, wa3_envelope_up, 'b')
 
-    wa_env_avg_up = (wa1_envelope_up + wa2_envelope_up + wa3_envelope_up) / 3
-    wa_env_avg_down = (wa1_envelope_down +
-                       wa2_envelope_down + wa3_envelope_down) / 3
+    wa_env_avg_up = (wa1_envelope_up+wa2_envelope_up+wa3_envelope_up)/3
+    wa_env_avg_down = (wa1_envelope_down+wa2_envelope_down+wa3_envelope_down)/3
 
     ax4.plot(t_envelope_down, wa1_envelope_down, 'g')
     ax4.plot(t_envelope_down, wa2_envelope_down, 'r')
