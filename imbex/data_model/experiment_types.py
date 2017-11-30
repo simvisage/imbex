@@ -109,8 +109,11 @@ class SFTPConnection(tr.HasTraits):
     # definition of pop-up window
     traits_view = View(Item(name='username'),
                        Item(name='password'),
-                       Item(name='test_types'),
+                       # Item(name='test_types'),
                        buttons=[OKButton, CancelButton])
+
+    traits_view2 = View(Item(name='test_types'),
+                        buttons=[OKButton, CancelButton])
 
     # prints the entered username and password
     def check_inputs(self):
