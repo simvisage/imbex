@@ -16,7 +16,8 @@ if __name__ == '__main__':
 
     # sc = server connection instances connects to ftp server defined in class SFTPConnection
     sc = SFTPConnection()
-    sc.configure_traits()
+    sc.configure_traits(view='traits_view')
+    sc.configure_traits(view='traits_view2')
     sc.check_inputs()
 
     # directory with files to be listed in the drop-down list
