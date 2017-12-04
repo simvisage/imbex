@@ -102,7 +102,7 @@ class SFTPConnection(tr.HasTraits):
     username = tr.Str('ftp', desc="username", label="username", )
 
     # tr.Password hides the entered password
-    password = tr.Password(desc="password", label="password", )
+    password = tr.Password('', desc="password", label="password", )
 
     test_types = tr.Enum('Cylinder-Tests', 'Beam-End-Tests', 'Stress-Redistribution-Tests')
 
@@ -130,17 +130,24 @@ class SFTPConnection(tr.HasTraits):
     def __init__(self):
         self.host = "134.130.81.25"
         self.port = 22
-        self.transport = paramiko.Transport(self.host, self.port)
-        self.transport.connect(username=self.username, password=self.password)
-        self.sftp = paramiko.SFTPClient.from_transport(self.transport)
 
     def list_files(self, directory):
         self.directory = directory
+        self.transport = paramiko.Transport(self.host, self.port)
+        self.transport.connect(username=self.username, password=self.password)
+        self.sftp = paramiko.SFTPClient.from_transport(self.transport)
         self.file_list = self.sftp.listdir(self.directory)
-        return self.file_list
+        self.file_list_csv = []
+        for names in self.file_list:
+            if names.endswith('.csv'):
+                self.file_list_csv.append(names)
+        return sorted(self.file_list_csv)
 
     # returns the path of the local file after downloading it from the server
     def transport_file(self, test_file, test):
+        self.transport = paramiko.Transport(self.host, self.port)
+        self.transport.connect(username=self.username, password=self.password)
+        self.sftp = paramiko.SFTPClient.from_transport(self.transport)
         self.filepath = '/home/ftp/austausch_chudoba/%s/raw_data/%s' %(test_file, test)
         self.localpath = './%s' % test
         # get the raw data file from the server and store it local
