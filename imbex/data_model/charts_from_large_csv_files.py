@@ -1,7 +1,7 @@
 __author__ = 'campsb'
 __copyright = 'Copyright 2009, IMB, RWTH Aachen'
 __date__ = 'Nov. 16, 2017'
-__status__ = 'Draft'
+__status__ = 'Rejected'
 
 import numpy as np
 from traits.api import\
