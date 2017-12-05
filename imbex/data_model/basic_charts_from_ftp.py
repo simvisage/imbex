@@ -1,11 +1,12 @@
 __author__ = 'campsb'
 __copyright = 'Copyright 2009, IMB, RWTH Aachen'
-__date__ = 'Nov. 30, 2017'
+__date__ = 'Dec. 4, 2017'
 __status__ = 'Draft'
 
 
 # imports
 import numpy as np
+import scipy as sp
 import pandas as pd
 import pylab as p
 import os
@@ -49,7 +50,7 @@ if __name__ == '__main__':
     columns_to_keep = [0, 1, 2, 3, 4, 5]
 
     # raw data is read using pandas and returned as DataFrame
-    dataframe = pd.read_csv(sc.transport_file(test_type, test), sep=';', decimal=',', skiprows=2, nrows=None, usecols=columns_to_keep)
+    dataframe = pd.read_csv(sc.transport_file(test_type, test), sep=';', decimal=',', skiprows=100, nrows=None, usecols=columns_to_keep)
 
     # converts DataFrame to Numpy array
     data = dataframe.as_matrix(columns=None)
@@ -63,7 +64,22 @@ if __name__ == '__main__':
     # deletes the local file
     os.remove(sc.local_raw_file())
 
-    # definition of positions od subplots
+    # defines some basic layout of plots
+    params = {'legend.fontsize': 'large',
+              'figure.figsize': (15, 5),
+              'axes.labelsize': 'large',
+              'axes.titlesize': 'medium',
+              'xtick.labelsize': 'medium',
+              'ytick.labelsize': 'medium',
+              'lines.linewidth': 1,
+              'axes.linewidth': 1,
+              'lines.markersize': 4
+
+
+              }
+    p.rcParams.update(params)
+
+    # defines positions of subplots
     # ax1 = p.subplot(1, 1, 1)
     ax1 = p.subplot(2, 3, 1)
     ax2 = p.subplot(2, 3, 2)
@@ -72,7 +88,12 @@ if __name__ == '__main__':
     ax5 = p.subplot(2, 3, 3)
     ax6 = p.subplot(2, 3, 6)
 
+    ax1.set_xlabel('time')
+    ax1.set_ylabel('force')
     ax1.plot(ct.t, ct.f)
+
+    ax3.set_xlabel('time')
+    ax3.set_ylabel('displacement')
     ax3.plot(ct.t, ct.wa1, 'g')
     ax3.plot(ct.t, ct.wa2, 'r')
     ax3.plot(ct.t, ct.wa3, 'b')
@@ -86,8 +107,14 @@ if __name__ == '__main__':
 
     dt_t = ct.t[2 * delta_arg2:-2 * delta_arg2]
 
-    ax2.plot(ct.t[delta_arg2:-delta_arg2], df)
-    ax5.plot(ct.t[2*delta_arg2:-2*delta_arg2], ddf)
+    # ax2.set_xlabel('x-axis')
+    # ax2.set_ylabel('y-axis')
+    # ax2.plot(ct.t[delta_arg2:-delta_arg2], df)
+
+    ax5.set_xlabel('time')
+    ax5.set_ylabel('displacement')
+    # ax5.plot(ct.t[2*delta_arg2:-2*delta_arg2], ddf)
+    ax5.plot(ct.wa1, ct.f)
 
     df_threshold = 0.0
     ddf_threshold = 0.0
@@ -107,9 +134,33 @@ if __name__ == '__main__':
 
     down_args = down_args_d + delta_arg2
 
-    ax1.plot(ct.t[up_args], ct.f[up_args], 'go')
+    print(up_args.shape)
+    print(down_args.shape)
 
+    f_up = ct.f[up_args]
+    f_down = ct.f[down_args]
+
+    wa1_up = ct.wa1[up_args]
+    wa1_down = ct.wa1[down_args]
+
+    rig = (f_up-f_down)/(wa1_up-wa1_down)
+    cycles = np.arange(np.ma.size(up_args))
+    print(cycles)
+
+    ax2.set_xlabel('cycles')
+    ax2.set_ylabel('rigidity')
+    ax2.plot(cycles, rig)
+
+    print(rig)
+    # test=np.column_stack((up_args, down_args))
+
+    ax1.plot(ct.t[up_args], ct.f[up_args], 'go')
     ax1.plot(ct.t[down_args], ct.f[down_args], 'go')
+
+    ax5.plot(ct.wa1[up_args], ct.f[up_args], 'go')
+    ax5.plot(ct.wa1[down_args], ct.f[down_args], 'go')
+
+
 
     t_envelope_up = np.hstack([ct.t[:up_args[0]], ct.t[up_args[1:]]])
     wa1_envelope_up = np.hstack([ct.wa1[:up_args[0]], ct.wa1[up_args[1:]]])
@@ -120,6 +171,9 @@ if __name__ == '__main__':
     wa1_envelope_down = np.hstack([ct.wa1[:down_args[0]], ct.wa1[down_args[1:]]])
     wa2_envelope_down = np.hstack([ct.wa2[:down_args[0]], ct.wa2[down_args[1:]]])
     wa3_envelope_down = np.hstack([ct.wa3[:down_args[0]], ct.wa3[down_args[1:]]])
+
+    ax4.set_xlabel('time')
+    ax4.set_ylabel('displacement')
 
     ax4.plot(t_envelope_up, wa1_envelope_up, 'g')
     ax4.plot(t_envelope_up, wa2_envelope_up, 'r')
@@ -133,6 +187,9 @@ if __name__ == '__main__':
     ax4.plot(t_envelope_down, wa3_envelope_down, 'b')
     ax4.plot(t_envelope_up, wa_env_avg_up, '0.5')
     ax4.plot(t_envelope_down, wa_env_avg_down, '0.5')
+
+    ax6.set_xlabel('time')
+    ax6.set_ylabel('displacement')
 
     ax6.plot(t_envelope_up, wa_env_avg_up, '0.5')
     ax6.plot(t_envelope_down, wa_env_avg_down, '0.5')
