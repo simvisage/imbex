@@ -3,14 +3,12 @@ __copyright = 'Copyright 2009, IMB, RWTH Aachen'
 __date__ = 'Dec. 5, 2017'
 __status__ = 'Active'
 
-
 # imports
 import numpy as np
 import pandas as pd
 import pylab as p
 import os
 from experiment_types import CylinderTest, SFTPConnection, RequestedTest
-
 
 if __name__ == '__main__':
 
