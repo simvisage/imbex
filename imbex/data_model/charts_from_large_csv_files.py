@@ -182,13 +182,12 @@ if __name__ == '__main__':
     wa2_envelope_down = np.hstack([ct.wa2[:down_args[0]], ct.wa2[down_args[1:]]])
     wa3_envelope_down = np.hstack([ct.wa3[:down_args[0]], ct.wa3[down_args[1:]]])
 
-
+    wa_env_avg_up = (wa1_envelope_up+wa2_envelope_up+wa3_envelope_up)/3
+    wa_env_avg_down = (wa1_envelope_down+wa2_envelope_down+wa3_envelope_down)/3
+    
     ax4.plot(t_envelope_up, wa1_envelope_up, 'g')
     ax4.plot(t_envelope_up, wa2_envelope_up, 'r')
     ax4.plot(t_envelope_up, wa3_envelope_up, 'b')
-
-    wa_env_avg_up = (wa1_envelope_up+wa2_envelope_up+wa3_envelope_up)/3
-    wa_env_avg_down = (wa1_envelope_down+wa2_envelope_down+wa3_envelope_down)/3
 
     ax4.plot(t_envelope_down, wa1_envelope_down, 'g')
     ax4.plot(t_envelope_down, wa2_envelope_down, 'r')
@@ -198,5 +197,5 @@ if __name__ == '__main__':
 
     ax6.plot(t_envelope_up, wa_env_avg_up, '0.5')
     ax6.plot(t_envelope_down, wa_env_avg_down, '0.5')
-
+    
     p.show()
