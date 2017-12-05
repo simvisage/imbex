@@ -9,6 +9,7 @@ import pandas as pd
 import pylab as p
 import os
 from experiment_types import CylinderTest, SFTPConnection, RequestedTest
+from chart_types import BasicLayout
 
 if __name__ == '__main__':
 
@@ -43,7 +44,7 @@ if __name__ == '__main__':
     WA_3 = names[5]
 
     # Caution: modification of this list have also be done in Cylinder-Test class
-    # this was planned to reduce the read data by excluding columns
+    # this was planned to reduce the data by excluding columns
     columns_to_keep = [0, 1, 2, 3, 4, 5]
 
     # raw data is read using pandas and returned as DataFrame
@@ -61,27 +62,8 @@ if __name__ == '__main__':
     # deletes the local file
     os.remove(sc.local_raw_file())
 
-    # dictionary defining basic layout of plots
-    params = {'legend.fontsize': 'large',
-              'figure.figsize': (15, 5),
-              'axes.labelsize': 'large',
-              'axes.titlesize': 'medium',
-              'xtick.labelsize': 'medium',
-              'ytick.labelsize': 'medium',
-              'lines.linewidth': 1,
-              'axes.linewidth': 1,
-              'lines.markersize': 4}
-
-    # applies design from params dictionary to pylab
-    p.rcParams.update(params)
-
-    # defines numbers and positions of subplots
-    ax1 = p.subplot(3, 1, 1)
-    ax2 = p.subplot(3, 1, 3)
-    ax3 = p.subplot(3, 1, 2)
-
-    # 'index distance' to neighbour for calculation of difference
-    delta_arg2 = 20
+    # 'index distance' to neighbour for calculation of differences df and ddf
+    delta_arg2 = 1
 
     df = ct.f[2 * delta_arg2:] - ct.f[:-2 * delta_arg2]
     ddf = df[2 * delta_arg2:] - df[:-2 * delta_arg2]
@@ -113,6 +95,14 @@ if __name__ == '__main__':
     print(up_args.shape)
     print(down_args.shape)
 
+    # conditions to ensure that shapes are equal
+    # if up_args.shape < down_args.shape:
+    #     delta_1 = np.ma.size(down_args)-np.ma.size(up_args)
+    #     down_args = down_args[:-delta_1:]
+    # elif up_args.shape > down_args.shape:
+    #     delta_2 = np.ma.size(up_args) - np.ma.size(down_args)
+    #     up_args = up_args[:-delta_2:]
+
     # cross-section of cylinder tests [mm**2]
     A_ct = np.pi*50**2
 
@@ -135,6 +125,16 @@ if __name__ == '__main__':
     rig = (sig_up_scale-sig_down_scale)/(eps_wa1_up-eps_wa1_down)
     cycles = np.arange(np.ma.size(up_args))
 
+    # applies the basic layout to the generated charts
+    bl = BasicLayout()
+    bl.apply_design()
+
+    # defines numbers and positions of subplots
+    ax1 = p.subplot(3, 1, 1)
+    ax2 = p.subplot(3, 1, 3)
+    ax3 = p.subplot(3, 1, 2)
+
+    # definition of the charts
     ax1.set_xlabel('time [s]')
     ax1.set_ylabel('force [kN]')
     ax1.plot(ct.t, ct.f)
