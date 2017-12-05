@@ -26,7 +26,7 @@ from traitsui.api import View, Item, Handler, EnumEditor
 GA_cities = ['Athens', 'Atlanta', 'Macon', 'Marietta', 'Savannah']
 TX_cities = ['Bustin', 'Bmarillo', 'Eallas', 'Gouston', 'Tan Antonio', 'Yaco']
 
-cities = {
+citieses = {
     'GA': GA_cities,
     'TX': TX_cities,
     'OR': ['Albany', 'Eugene', 'Portland']
@@ -51,7 +51,7 @@ class AddressHandler(Handler):
         the viewed object (Address).
         """
         # Change the list of available cities
-        self.cities = cities[info.object.state]
+        self.cities = citieses[info.object.state]
 
         # As default value, use the first city in the list:
         info.object.city = self.cities[0]
@@ -62,7 +62,7 @@ class Address(HasTraits):
     """
 
     street_address = Str
-    state = Enum(list(cities.keys())[0], list(cities.keys()))
+    state = Enum(list(citieses.keys())[0], list(citieses.keys()))
     city = Str
 
     view = View(
