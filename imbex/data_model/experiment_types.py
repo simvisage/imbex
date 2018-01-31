@@ -95,6 +95,91 @@ class CylinderTest(tr.HasStrictTraits):
         return self.data[:self.argmax_force, 5]
 
 
+
+class BeamEndTest(tr.HasStrictTraits):
+    """ Defines the Beam-End Test class """
+
+    # input variables
+    data = tr.Array(np.float_, input=True)
+
+    height = tr.Float(300.0, unit='mm')
+
+    diameter = tr.Float(100.0, unit='mm')
+
+    category_c = tr.Str('C120')
+
+    strength_c = tr.Float(120.0, unit='MPa')
+
+    date_production = pd.to_datetime('2017-10-01')
+
+    date_test = pd.to_datetime('2017-11-01')
+
+    age_specimen = tr.Float(56.0, unit='d')
+
+    loading_scenario = tr.Str('LS1')
+
+    frequency = tr.Float(5.0, unit='Hz')
+
+    loading_cycles = tr.Str(100)
+
+    # properties / cached_properties
+    argmax_force = tr.Property(depends_on='+input')
+
+    # index of maximum force f_max
+    @tr.cached_property
+    def _get_argmax_force(self):
+        f = self.data[:, 1]
+        return np.argmin(f)
+
+    t = tr.Property(depends_on='+input')
+
+    # time at f_max
+    @tr.cached_property
+    def _get_t(self):
+        return self.data[:self.argmax_force, 0]
+
+    f = tr.Property(depends_on='+input')
+
+    # maximum force f_max
+    @tr.cached_property
+    def _get_f(self):
+        return -self.data[:self.argmax_force, 1]
+
+    u = tr.Property(depends_on='+input')
+
+    # machine displacement at f_max
+    @tr.cached_property
+    def _get_u(self):
+        return -self.data[:self.argmax_force, 2]
+
+    wa1 = tr.Property(depends_on='+input')
+
+    # gauge 1 displacement at f_max
+    @tr.cached_property
+    def _get_wa1(self):
+        return self.data[:self.argmax_force, 3]
+
+    wa2 = tr.Property(depends_on='+input')
+
+    # gauge 2 displacement at f_max
+    @tr.cached_property
+    def _get_wa2(self):
+        return self.data[:self.argmax_force, 4]
+
+    wa3 = tr.Property(depends_on='+input')
+
+    # gauge 3 displacement at f_max
+    @tr.cached_property
+    def _get_wa3(self):
+        return self.data[:self.argmax_force, 5]
+
+    wa4 = tr.Property(depends_on='+input')
+
+    # gauge 4 displacement at f_max
+    @tr.cached_property
+    def _get_wa4(self):
+        return self.data[:self.argmax_force, 6]
+
 class SFTPConnection(tr.HasTraits):
     """ Defines the SFTP connection class """
 
@@ -102,7 +187,7 @@ class SFTPConnection(tr.HasTraits):
     username = tr.Str('ftp', desc="username", label="username", )
 
     # tr.Password hides the entered password
-    password = tr.Password('', desc="password", label="password", )
+    password = tr.Password('!mb1@FTP7', desc="password", label="password", )
 
     test_types = tr.Enum('Cylinder-Tests', 'Beam-End-Tests', 'Stress-Redistribution-Tests')
 
@@ -158,6 +243,7 @@ class SFTPConnection(tr.HasTraits):
     def local_raw_file(self):
         # return only the path of the local raw data file created in transport_file
         return self.localpath
+
 
     def disconnect(self):
         # disconnects from the ftp server
