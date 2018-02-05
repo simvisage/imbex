@@ -1,0 +1,54 @@
+#Log all operations of the application
+2018-01-25 20:33:03 DEBUG    Initializes SMRCModel
+2018-01-25 20:33:03 DEBUG    Initialize SMRCServer
+2018-01-25 20:33:03 DEBUG    Initialize ProjectHandler
+2018-01-25 20:33:03 DEBUG    Initialize SMRCConncetion
+2018-01-25 20:33:03 DEBUG    Try to connect with the server.
+2018-01-25 20:33:03 DEBUG    Initialize FTPServer
+2018-01-25 20:33:03 DEBUG    Try to connect with the FTP-server.
+2018-01-25 20:33:03 DEBUG    Connected [FTPServer]
+2018-01-25 20:33:03 DEBUG    Try to connect with the FTP-server.
+2018-01-25 20:33:03 DEBUG    Connected [FTPServer]
+2018-01-25 20:33:04 DEBUG    Application is connected with the server
+2018-01-25 20:33:04 DEBUG    Initialize Experiment
+2018-01-25 20:33:04 DEBUG    Initialize CorrelationProperties
+2018-01-25 20:33:04 DEBUG    Initializes ExperimentRecorder
+2018-01-25 20:33:04 DEBUG    Initialize Recorder
+2018-01-25 20:33:04 DEBUG    Initialize PhaseEditor
+2018-01-25 20:33:04 DEBUG    Error 343: Specified USB board not detected.
+2018-01-25 20:33:04 INFO     Application starts in evaluate-mode
+2018-01-25 20:33:04 DEBUG    Initializes SMRCModel
+2018-01-25 20:33:04 DEBUG    Initialize SMRCServer
+2018-01-25 20:33:04 DEBUG    Initialize ProjectHandler
+2018-01-25 20:33:04 DEBUG    Initialize SMRCConncetion
+2018-01-25 20:33:04 DEBUG    Try to connect with the server.
+2018-01-25 20:33:04 DEBUG    Initialize FTPServer
+2018-01-25 20:33:04 DEBUG    Try to connect with the FTP-server.
+2018-01-25 20:33:04 DEBUG    Connected [FTPServer]
+2018-01-25 20:33:04 DEBUG    Try to connect with the FTP-server.
+2018-01-25 20:33:05 DEBUG    Connected [FTPServer]
+2018-01-25 20:33:06 DEBUG    Application is connected with the server
+2018-01-25 20:33:06 DEBUG    Initialize Experiment
+2018-01-25 20:33:06 DEBUG    Initialize CorrelationProperties
+2018-01-25 20:33:06 DEBUG    Initializes ExperimentRecorder
+2018-01-25 20:33:06 DEBUG    Initialize Recorder
+2018-01-25 20:33:06 DEBUG    Initialize PhaseEditor
+2018-01-25 20:33:08 DEBUG    Finished initializing
+2018-01-25 20:33:10 INFO     Load a project [SMRCHandler]
+2018-01-25 20:33:15 DEBUG    Load project from file: C:/Users/mkennert/workspace_pyton/Bachelorarbeit/Source/test/zugversuch/SD44SV/2017-05-22_SD44SV1_vadam.smrcprj
+2018-01-25 20:33:15 DEBUG    Extract files
+2018-01-25 20:33:27 DEBUG    Load components [ExperimentRecorder]
+2018-01-25 20:33:27 DEBUG    Load recorded values [Recorder]
+2018-01-25 20:33:28 DEBUG    Update reference image [Recorder]
+2018-01-25 20:33:28 DEBUG    Load properties [CorrelationProperties]
+2018-01-25 20:33:28 DEBUG    Update reference image [Recorder]
+2018-01-25 20:33:28 DEBUG    Loaded successfully [SMRCModel]
+2018-01-25 20:33:36 DEBUG    Load project from server
+2018-01-25 20:33:36 DEBUG    Download project from server
+2018-01-25 20:33:36 DEBUG    Download project: /home/ftp/smartrecord/experiments/bending/test/2018-01-25_test_vadam
+2018-01-25 20:33:36 DEBUG    Download file : correlation_properties.json
+2018-01-25 20:33:36 DEBUG    Download file : measuring_card.json
+2018-01-25 20:33:36 DEBUG    Download file : phases.json
+2018-01-25 20:33:36 DEBUG    Download file : type.json
+2018-01-25 20:33:37 DEBUG    Download file : image_000.JPG
+2018-01-25 20:33:42 DEBUG    Download file : image_001.JPG

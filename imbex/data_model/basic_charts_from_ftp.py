@@ -5,41 +5,41 @@ __status__ = 'Active'
 
 
 # imports
+import os
+
+from chart_types import BasicLayout
+from experiment_types import CylinderTest, SFTPConnection, RequestedTest
 import numpy as np
-import scipy as sp
 import pandas as pd
 import pylab as p
-import os
-from experiment_types import CylinderTest, SFTPConnection, RequestedTest
-from chart_types import BasicLayout
+import scipy as sp
 
 
 if __name__ == '__main__':
 
-    # sc = server connection instances connects to ftp server defined in class SFTPConnection
+    # sc = server connection instances connects to ftp server defined in class
+    # SFTPConnection
     sc = SFTPConnection()
     sc.configure_traits(view='traits_view')
     sc.configure_traits(view='traits_view2')
     sc.check_inputs()
 
-    # directory with files to be listed in the drop-down list
-    directory = sc.requested_directory()
-
     # list of files in the requested directory
-    file_list1 = sc.list_files(directory)
+    file_list = sc.test_treatments
 
     # rt = instance to generate the drop-down list
-    rt = RequestedTest(file_list=sc.list_files(directory))
+    rt = RequestedTest(file_list=file_list)
     rt.configure_traits()
     rt.check_input()
 
     # test type chosen be user from first dialog box
-    test_type = sc.output_test_type()
+    test_type = sc.test_type
 
     # test type chosen be user from drop-down dialog box
-    test = rt.output_test()
+    test = rt.selected_test
 
-    names = ['Zeit [s]', 'Kraft [kN]', 'Maschinenweg [mm]', 'WA_1 [mm]', 'WA_2 [mm]', 'WA_3 [mm]']
+    names = ['Zeit [s]', 'Kraft [kN]', 'Maschinenweg [mm]',
+             'WA_1 [mm]', 'WA_2 [mm]', 'WA_3 [mm]']
 
     F = names[1]
     WA_1 = names[3]
@@ -51,7 +51,9 @@ if __name__ == '__main__':
     columns_to_keep = [0, 1, 2, 3, 4, 5]
 
     # raw data is read using pandas and returned as DataFrame
-    dataframe = pd.read_csv(sc.transport_file(test_type, test), sep=';', decimal=',', skiprows=100, nrows=None, usecols=columns_to_keep)
+    dataframe = pd.read_csv(sc.transport_file(test_type, test), sep=';',
+                            decimal=',', skiprows=100,
+                            nrows=None, usecols=columns_to_keep)
 
     # converts DataFrame to Numpy array
     data = dataframe.as_matrix(columns=None)
@@ -73,7 +75,6 @@ if __name__ == '__main__':
     print (df.shape)
 
     dt_t = ct.t[2 * delta_arg2:-2 * delta_arg2]
-
 
     df_threshold = 0.0
     ddf_threshold = 0.0
@@ -99,13 +100,16 @@ if __name__ == '__main__':
     wa3_envelope_up = np.hstack([ct.wa3[:up_args[0]], ct.wa3[up_args[1:]]])
 
     t_envelope_down = np.hstack([ct.t[:down_args[0]], ct.t[down_args[1:]]])
-    wa1_envelope_down = np.hstack([ct.wa1[:down_args[0]], ct.wa1[down_args[1:]]])
-    wa2_envelope_down = np.hstack([ct.wa2[:down_args[0]], ct.wa2[down_args[1:]]])
-    wa3_envelope_down = np.hstack([ct.wa3[:down_args[0]], ct.wa3[down_args[1:]]])
+    wa1_envelope_down = np.hstack(
+        [ct.wa1[:down_args[0]], ct.wa1[down_args[1:]]])
+    wa2_envelope_down = np.hstack(
+        [ct.wa2[:down_args[0]], ct.wa2[down_args[1:]]])
+    wa3_envelope_down = np.hstack(
+        [ct.wa3[:down_args[0]], ct.wa3[down_args[1:]]])
 
-
-    wa_env_avg_up = (wa1_envelope_up+wa2_envelope_up+wa3_envelope_up)/3
-    wa_env_avg_down = (wa1_envelope_down+wa2_envelope_down+wa3_envelope_down)/3
+    wa_env_avg_up = (wa1_envelope_up + wa2_envelope_up + wa3_envelope_up) / 3
+    wa_env_avg_down = (wa1_envelope_down +
+                       wa2_envelope_down + wa3_envelope_down) / 3
 
     # applies the basic layout to the generated charts
     bl = BasicLayout()
@@ -160,17 +164,3 @@ if __name__ == '__main__':
     ax6.plot(t_envelope_down, wa_env_avg_down, '0.5')
 
     p.show()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
