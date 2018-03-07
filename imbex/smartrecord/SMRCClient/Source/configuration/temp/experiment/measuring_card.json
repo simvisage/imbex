@@ -1,0 +1,13 @@
+{
+  "ports": [
+    {
+      "scale": 1, 
+      "name": "Force [kN]", 
+      "class_name": "PortAI", 
+      "offset": 0, 
+      "input": true, 
+      "id": 0
+    }
+  ], 
+  "volt_interval": 0
+}

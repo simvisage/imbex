@@ -1,0 +1,228 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Anwendungsverlauf &#8212; SmartRec 0.1 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1 0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API-Application Programming Interface" href="code.html" />
+    <link rel="prev" title="Welcome to SmartRecord-Recorders’s documentation!" href="index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="code.html" title="API-Application Programming Interface"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to SmartRecord-Recorders’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SmartRec 0.1 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Anwendungsverlauf</a><ul>
+<li><a class="reference internal" href="#aufnahmemodus">Aufnahmemodus</a></li>
+<li><a class="reference internal" href="#auswertemodus">Auswertemodus</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to SmartRecord-Recorders&#8217;s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="code.html"
+                        title="next chapter">API-Application Programming Interface</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/tutorial.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="anwendungsverlauf">
+<h1>Anwendungsverlauf<a class="headerlink" href="#anwendungsverlauf" title="Permalink to this headline">¶</a></h1>
+<p>SmartRecord ermoeglicht es Versuche automatisiert aufzunehmen und
+diese auszuwerten. Da die Funktionalitaeten der Applikation davon abhaengen,
+ob eine Messkarte angeschlossen ist, gibt es die zwei Modi Aufnahmemodus und
+Auswertemodus. Der Aufnahmemodus ermoeglicht es im Gegensatz zum
+Auswertemodus die Funktionalitaeten der Messkarte und der Kamera zu nutzen.</p>
+<div class="section" id="aufnahmemodus">
+<h2>Aufnahmemodus<a class="headerlink" href="#aufnahmemodus" title="Permalink to this headline">¶</a></h2>
+<p>Wenn die Messkarte am Computer angeschlossen ist und vom Programm erkannt wird,
+startet das Programm im Aufnahmemodus. Beim Starten des Programms wird versucht
+eine Verbindung zum Server aufzubauen. Falls keine Verbindung aufgebaut werden
+kann, ist der Server nicht erreichbar oder die Serverkonfiguration ist nicht
+korrekt eingestellt. In diesem Fall kann diese ?ber das Menu Configuration
+konfiguriert werden und ein erneuter Versuch sich mit Server zu verbinden
+gestartet werden. Um die Kamera mit der Applikation ansteuern zu koennen,
+muss diese zuvor mit dem Computer per WLAN verbunden werden. Sobald eine
+Verbindung mit dem Computer aufgebaut wurde, wird dieser eine IP zugeordnet,
+welche in der Applikation eingetragen werden muss. Der Verbindung wird in der
+Regel die IP-Adresse 192.168.0.1 zugewiesen. Fuer die Versuchsaufnahme werden
+mindestens ein Input-Port und ein Output-Port benoetigt. Dabei ist zu beachten,
+dass derzeit nur ein Output-Port hinzugefuegt werden kann, der alle
+Ausgangskanaele zeitgleich ausloest.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/externe.png"><img alt="map to buried treasure" src="_images/externe.png" style="width: 956.2px; height: 509.6px;" /></a>
+</div>
+<p>Um den Versuchsablauf zu definieren, muss mindestens eine Phase
+hinzugefuegt werden. Die Phasen legen fest, wann ein Bild aufgezeichnet
+werden soll. Zurzeit koennen folgende Phasen hinzugefuegt werden:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Value-phase  (Wertbasierte Phase)</li>
+<li>Time-phase  (Zeitbasierte Phase)</li>
+<li>Pause-phase (Phase wo keine Aufnahmen erfolgen)</li>
+<li>Cycle (Eine Folge von Phasen, die n-mal wiederholt)</li>
+</ul>
+</div></blockquote>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/versuchsablauf.png"><img alt="map to buried treasure" src="_images/versuchsablauf.png" style="width: 956.2px; height: 509.6px;" /></a>
+</div>
+<p>Da die Versuche im Nachhinein eindeutig identifiziert werden sollen,
+muessen die Versuchseigenschaften entsprechend festgelegt werden. Durch
+den Typ und der Serie wird festgelegt, in welchem Ordner der Versuch
+abgelegt wird.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/versuchseigenschaften.png"><img alt="map to buried treasure" src="_images/versuchseigenschaften.png" style="width: 956.2px; height: 509.6px;" /></a>
+</div>
+<p>Hier koennen die Korrelationseigenschaften festgelegt werden, wobei diese
+wenig Verwendung finden, da derzeit kein Rechenserver zur Verfuegung steht.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/korrelationseigenschaften.png"><img alt="map to buried treasure" src="_images/korrelationseigenschaften.png" style="width: 956.2px; height: 509.6px;" /></a>
+</div>
+<p>Nach der erfolgreichen Versuchsdurchf?hrung koennen die Aufzeichnungen lokal
+abgespeichert werden. Falls der Versuch im Online-Modus durchgef?hrt wird,
+werden die Daten auf dem Server automatisch waehrend der Aufzeichnung abgelegt,
+sodass auf dem Server ein Backup existiert.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/aufnahme_fertig.png"><img alt="map to buried treasure" src="_images/aufnahme_fertig.png" style="width: 956.2px; height: 509.6px;" /></a>
+</div>
+</div>
+<div class="section" id="auswertemodus">
+<h2>Auswertemodus<a class="headerlink" href="#auswertemodus" title="Permalink to this headline">¶</a></h2>
+<p>Im Auswertemodus koennen bereits durchgef?hrte Versuche lokal oder vom
+Server geladen werden. Derzeit kann die digitale Bildkorrelation nicht von
+dem Programm durchgef?hrt werden, weshalb es eine Funktion gibt, die das
+Importieren von externen Ergebnissen ermoeglicht. Die Dateien werden in der
+folgenden Reihenfolge eingelesen:</p>
+<blockquote>
+<div><ul class="simple">
+<li>U-Displacements</li>
+<li>V-Displacements</li>
+<li>Strain-exx</li>
+<li>Strain-exy</li>
+<li>Strain-eyy</li>
+</ul>
+</div></blockquote>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/ergebnisse_einlesen.png"><img alt="map to buried treasure" src="_images/ergebnisse_einlesen.png" style="width: 954.8px; height: 508.9px;" /></a>
+</div>
+<p>Anschlie?end werden die Ergebnisse graphisch dargestellt und die Dehnungen
+in Abh?ngigkeit vom ausgewaehlten Wert angezeigt.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/bilder_generieren.png"><img alt="map to buried treasure" src="_images/bilder_generieren.png" style="width: 956.2px; height: 509.6px;" /></a>
+</div>
+<p>Fuer eine genauere Versuchsauswertung koennen virtuelle Wegaufnehmer auf
+den Aufnahmen platziert werden, welche ueber die Bildreihe hinweg verfolgt
+werden. Durch den Radius kann die Anzahl der betrachten Subsets in einem Kreis
+festgelegt werden. Je mehr Subsets ausgewaehlt werden, desto stabiler sind
+die Ergebnisse.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/wegaufnehmer.png"><img alt="map to buried treasure" src="_images/wegaufnehmer.png" style="width: 954.8px; height: 509.6px;" /></a>
+</div>
+<p>Schlie?lich koennen die aufgezeichneten Werte betrachtet und abgespeichert
+werden.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/ergebnisse_anzeigen.png"><img alt="map to buried treasure" src="_images/ergebnisse_anzeigen.png" style="width: 954.1px; height: 508.9px;" /></a>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="code.html" title="API-Application Programming Interface"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to SmartRecord-Recorders’s documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SmartRec 0.1 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Marcel Kennert.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
+    </div>
+  </body>
+</html>

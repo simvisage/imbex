@@ -73,27 +73,6 @@ class CylinderTest(tr.HasStrictTraits):
     def _get_u(self):
         return -self.data[:self.argmax_force, 2]
 
-    wa1 = tr.Property(depends_on='+input')
-
-    # gauge 1 displacement at f_max
-    @tr.cached_property
-    def _get_wa1(self):
-        return self.data[:self.argmax_force, 3]
-
-    wa2 = tr.Property(depends_on='+input')
-
-    # gauge 2 displacement at f_max
-    @tr.cached_property
-    def _get_wa2(self):
-        return self.data[:self.argmax_force, 4]
-
-    wa3 = tr.Property(depends_on='+input')
-
-    # gauge 3 displacement at f_max
-    @tr.cached_property
-    def _get_wa3(self):
-        return self.data[:self.argmax_force, 5]
-
 
 
 class BeamEndTest(tr.HasStrictTraits):
@@ -172,8 +151,7 @@ class BeamEndTest(tr.HasStrictTraits):
     @tr.cached_property
     def _get_wa3(self):
         return self.data[:self.argmax_force, 5]
-
-    wa4 = tr.Property(depends_on='+input')
+    wa3 = tr.Property(depends_on='+input')
 
     # gauge 4 displacement at f_max
     @tr.cached_property
@@ -187,7 +165,7 @@ class SFTPConnection(tr.HasTraits):
     username = tr.Str('ftp', desc="username", label="username", )
 
     # tr.Password hides the entered password
-    password = tr.Password('', desc="password", label="password", )
+    password = tr.Password('!mb1@FTP7', desc="password", label="password", )
 
     test_types = tr.Enum('Cylinder-Tests', 'Beam-End-Tests', 'Stress-Redistribution-Tests')
 

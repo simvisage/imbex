@@ -1,0 +1,3167 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>API-Application Programming Interface &#8212; SmartRec 0.1 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1 0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Anwendungsverlauf" href="tutorial.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tutorial.html" title="Anwendungsverlauf"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SmartRec 0.1 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">API-Application Programming Interface</a><ul>
+<li><a class="reference internal" href="#application">application</a><ul>
+<li><a class="reference internal" href="#id1">application</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#basic-modules">basic_modules</a><ul>
+<li><a class="reference internal" href="#module-basic_modules.basic_classes">basic_classes</a></li>
+<li><a class="reference internal" href="#module-basic_modules.basic_dialogs">basic_dialogs</a></li>
+<li><a class="reference internal" href="#module-basic_modules.basic_methods">basic_methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#camera">camera</a><ul>
+<li><a class="reference internal" href="#module-camera.camera_interfaces">Interfaces</a></li>
+<li><a class="reference internal" href="#module-camera.camera_selector">Selector</a></li>
+<li><a class="reference internal" href="#module-camera.http_camera">HTTP-Camera</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-experiment._experiment">Experiment</a><ul>
+<li><a class="reference internal" href="#module-experiment.correlation.methods.sensor">correlation</a></li>
+<li><a class="reference internal" href="#module-experiment.recorder.phase_editor.phases">recorder</a></li>
+<li><a class="reference internal" href="#module-experiment.type.reinforcement.reinforcements">type</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#measuring-card">measuring_card</a><ul>
+<li><a class="reference internal" href="#module-measuring_card.card">Card</a></li>
+<li><a class="reference internal" href="#module-measuring_card.ports">Ports</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-server.ftp_service">server</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tutorial.html"
+                        title="previous chapter">Anwendungsverlauf</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/code.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="api-application-programming-interface">
+<h1>API-Application Programming Interface<a class="headerlink" href="#api-application-programming-interface" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="application">
+<h2>application<a class="headerlink" href="#application" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>application<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-application.app"></span><dl class="class">
+<dt id="application.app.Application">
+<em class="property">class </em><code class="descclassname">application.app.</code><code class="descname">Application</code><a class="headerlink" href="#application.app.Application" title="Permalink to this definition">¶</a></dt>
+<dd><p>SMRC is a application to record experiment with digital camera 
+automatically and evaluate the experiment with ncorr.</p>
+<dl class="method">
+<dt id="application.app.Application.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#application.app.Application.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the application.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="application.app.StartDialog">
+<em class="property">class </em><code class="descclassname">application.app.</code><code class="descname">StartDialog</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="headerlink" href="#application.app.StartDialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>The StartDialog will show when initializing the application.</p>
+<dl class="method">
+<dt id="application.app.StartDialog.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#application.app.StartDialog.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the initializing of the application.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="application.app.StartDialog.show">
+<code class="descname">show</code><span class="sig-paren">(</span><em>task</em><span class="sig-paren">)</span><a class="headerlink" href="#application.app.StartDialog.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show the StartDialog and initialize the application in the background.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>task</strong> (<em>Built-in function</em>) &#8211; Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="application.app.StartDialogHandler">
+<em class="property">class </em><code class="descclassname">application.app.</code><code class="descname">StartDialogHandler</code><a class="headerlink" href="#application.app.StartDialogHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles the StartDialog. The handler makes sure that the 
+StartDialog will close when the initialization is done.</p>
+</dd></dl>
+
+<span class="target" id="module-application.smrc_handler"></span><dl class="class">
+<dt id="application.smrc_handler.SMRCHandler">
+<em class="property">class </em><code class="descclassname">application.smrc_handler.</code><code class="descname">SMRCHandler</code><a class="headerlink" href="#application.smrc_handler.SMRCHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles the interaction with the SMRCModel and the SMRCWindow.</p>
+<dl class="method">
+<dt id="application.smrc_handler.SMRCHandler.load_experiment">
+<code class="descname">load_experiment</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="headerlink" href="#application.smrc_handler.SMRCHandler.load_experiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the experiment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="application.smrc_handler.SMRCHandler.load_project">
+<code class="descname">load_project</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="headerlink" href="#application.smrc_handler.SMRCHandler.load_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the project.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="application.smrc_handler.SMRCHandler.open_tutorial">
+<code class="descname">open_tutorial</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="headerlink" href="#application.smrc_handler.SMRCHandler.open_tutorial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens the tutorial for the application</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="application.smrc_handler.SMRCHandler.save_experiment">
+<code class="descname">save_experiment</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="headerlink" href="#application.smrc_handler.SMRCHandler.save_experiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the experiment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="application.smrc_handler.SMRCHandler.save_project">
+<code class="descname">save_project</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="headerlink" href="#application.smrc_handler.SMRCHandler.save_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the project.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="application.smrc_handler.imread">
+<code class="descclassname">application.smrc_handler.</code><code class="descname">imread</code><span class="sig-paren">(</span><em>filename</em><span class="optional">[</span>, <em>flags</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; retval<a class="headerlink" href="#application.smrc_handler.imread" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-application.smrc_model"></span><dl class="class">
+<dt id="application.smrc_model.SMRCModel">
+<em class="property">class </em><code class="descclassname">application.smrc_model.</code><code class="descname">SMRCModel</code><span class="sig-paren">(</span><em>record_mode</em><span class="sig-paren">)</span><a class="headerlink" href="#application.smrc_model.SMRCModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object SMRCModel manages the course of the experiment. 
+It contains a model and a handler. The handler make sure that 
+the a experiment can not restart while it is running.
+The model contains the phases and address the measuring 
+card if the camera should take a picture.</p>
+<dl class="method">
+<dt id="application.smrc_model.SMRCModel.is_valid">
+<code class="descname">is_valid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#application.smrc_model.SMRCModel.is_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether the experiment is valid</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="application.smrc_model.SMRCModel.load_project">
+<code class="descname">load_project</code><span class="sig-paren">(</span><em>fpath=''</em>, <em>from_server=False</em>, <em>project=''</em><span class="sig-paren">)</span><a class="headerlink" href="#application.smrc_model.SMRCModel.load_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the project</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fpath</strong> (<em>string</em>) &#8211; Name of the file</li>
+<li><strong>from_server</strong> (<em>Bool</em>) &#8211; True if the project should be load from the server</li>
+<li><strong>project</strong> (<em>string</em>) &#8211; Name of the project</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="application.smrc_model.SMRCModel.save_experiment">
+<code class="descname">save_experiment</code><span class="sig-paren">(</span><em>fpath</em><span class="sig-paren">)</span><a class="headerlink" href="#application.smrc_model.SMRCModel.save_experiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the attributes of the experiment.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fpath</strong> (<em>string</em>) &#8211; Path to the file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True, if the experiment was saved, False otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="application.smrc_model.SMRCModel.save_project">
+<code class="descname">save_project</code><span class="sig-paren">(</span><em>fpath</em><span class="sig-paren">)</span><a class="headerlink" href="#application.smrc_model.SMRCModel.save_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the project</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fpath</strong> (<em>string</em>) &#8211; Path to the file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True, if the experiment was saved, False otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-application.smrc_window"></span><dl class="class">
+<dt id="application.smrc_window.SMRCWindow">
+<em class="property">class </em><code class="descclassname">application.smrc_window.</code><code class="descname">SMRCWindow</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#application.smrc_window.SMRCWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>SMRCWindow is the Mainwindow of the application SmartRecord. The window 
+shows the time and the current phase of the experiment when it&#8217;s running. 
+Furthermore the window interacts with the SMRCModel and 
+make it possible that the user can start and 
+cancel the experiment by clicking a icon.</p>
+<dl class="method">
+<dt id="application.smrc_window.SMRCWindow.start_clock">
+<code class="descname">start_clock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#application.smrc_window.SMRCWindow.start_clock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the clock in the status bar.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="basic-modules">
+<h2>basic_modules<a class="headerlink" href="#basic-modules" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-basic_modules.basic_classes">
+<span id="basic-classes"></span><h3>basic_classes<a class="headerlink" href="#module-basic_modules.basic_classes" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="basic_modules.basic_classes.Combobox">
+<em class="property">class </em><code class="descclassname">basic_modules.basic_classes.</code><code class="descname">Combobox</code><a class="headerlink" href="#basic_modules.basic_classes.Combobox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combobox in traits.</p>
+<dl class="method">
+<dt id="basic_modules.basic_classes.Combobox.add_item">
+<code class="descname">add_item</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_classes.Combobox.add_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a item in the dictionary and show it in the combobox</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>string</em>) &#8211; Key which should show in the combobox</li>
+<li><strong>value</strong> (<em>object</em>) &#8211; Belonging value</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="basic_modules.basic_classes.Combobox.add_listener">
+<code class="descname">add_listener</code><span class="sig-paren">(</span><em>listener</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_classes.Combobox.add_listener" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes it possible that the parents can be notify 
+when the selected_key has changed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>listener</strong> (<em>object</em>) &#8211; Parent object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="basic_modules.basic_classes.Combobox.reset">
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_classes.Combobox.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets all entries of the dictionary</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="basic_modules.basic_classes.Combobox.show_value">
+<code class="descname">show_value</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_classes.Combobox.show_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shows the key of the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<em>object</em>) &#8211; Belonging value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="basic_modules.basic_classes.ImportItem">
+<em class="property">class </em><code class="descclassname">basic_modules.basic_classes.</code><code class="descname">ImportItem</code><span class="sig-paren">(</span><em>image</em>, <em>time</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_classes.ImportItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Item which will used by the import of old projects.</p>
+<dl class="method">
+<dt id="basic_modules.basic_classes.ImportItem.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_classes.ImportItem.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the properties of the item.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Name of the image, (past time, recorded value)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(string, list)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="basic_modules.basic_classes.ImportItem.time_to_secs">
+<code class="descname">time_to_secs</code><span class="sig-paren">(</span><em>tfmt</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_classes.ImportItem.time_to_secs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the given time-format to seconds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tfmt</strong> (<em>string</em>) &#8211; Time-format</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">seconds</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="basic_modules.basic_classes.InstanceUItem">
+<em class="property">class </em><code class="descclassname">basic_modules.basic_classes.</code><code class="descname">InstanceUItem</code><span class="sig-paren">(</span><em>value=None</em>, <em>**traits</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_classes.InstanceUItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience class for including an Instance in a View.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="basic_modules.basic_classes.RunThread">
+<em class="property">class </em><code class="descclassname">basic_modules.basic_classes.</code><code class="descname">RunThread</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_classes.RunThread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Thread which start automatically with the daemon-flag.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-basic_modules.basic_dialogs">
+<span id="basic-dialogs"></span><h3>basic_dialogs<a class="headerlink" href="#module-basic_modules.basic_dialogs" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="basic_modules.basic_dialogs.ApplicationDialogs">
+<em class="property">class </em><code class="descclassname">basic_modules.basic_dialogs.</code><code class="descname">ApplicationDialogs</code><a class="headerlink" href="#basic_modules.basic_dialogs.ApplicationDialogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make it possible to use all dialogs with just one instance.</p>
+<dl class="method">
+<dt id="basic_modules.basic_dialogs.ApplicationDialogs.open_error">
+<code class="descname">open_error</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.ApplicationDialogs.open_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens the error-dialog</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msg</strong> (<em>string</em>) &#8211; Error-message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="basic_modules.basic_dialogs.ApplicationDialogs.open_exit">
+<code class="descname">open_exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.ApplicationDialogs.open_exit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens the exit-dialog.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="basic_modules.basic_dialogs.ApplicationDialogs.open_restart">
+<code class="descname">open_restart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.ApplicationDialogs.open_restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens the restart-dialog.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="basic_modules.basic_dialogs.ApplicationDialogs.open_save">
+<code class="descname">open_save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.ApplicationDialogs.open_save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens the dialog to select the storage path.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The selected path</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="basic_modules.basic_dialogs.ApplicationDialogs.open_state">
+<code class="descname">open_state</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.ApplicationDialogs.open_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens the state-dialog.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>state</strong> (<em>bool</em>) &#8211; True if the process was successful, False otherwise</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="basic_modules.basic_dialogs.ErrorDialogs">
+<em class="property">class </em><code class="descclassname">basic_modules.basic_dialogs.</code><code class="descname">ErrorDialogs</code><a class="headerlink" href="#basic_modules.basic_dialogs.ErrorDialogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dialog to show errors</p>
+<dl class="method">
+<dt id="basic_modules.basic_dialogs.ErrorDialogs.open_error">
+<code class="descname">open_error</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.ErrorDialogs.open_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens the dialog with the given message</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msg</strong> (<em>string</em>) &#8211; Message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="basic_modules.basic_dialogs.ImportManuallyLoader">
+<em class="property">class </em><code class="descclassname">basic_modules.basic_dialogs.</code><code class="descname">ImportManuallyLoader</code><span class="sig-paren">(</span><em>values</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.ImportManuallyLoader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide the manually import from experiments.</p>
+<dl class="method">
+<dt id="basic_modules.basic_dialogs.ImportManuallyLoader.get_all_files">
+<code class="descname">get_all_files</code><span class="sig-paren">(</span><em>directory</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.ImportManuallyLoader.get_all_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all files of the directory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>directory</strong> (<em>string</em>) &#8211; Path to the directory</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Paths of all files</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="basic_modules.basic_dialogs.ImportManuallyLoader.get_images_values">
+<code class="descname">get_images_values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.ImportManuallyLoader.get_images_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all importet images and the recorded values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Images, Values</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list, ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="basic_modules.basic_dialogs.ImportManuallyLoader.resize_images">
+<code class="descname">resize_images</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.ImportManuallyLoader.resize_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resizes all images in the images_dir.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="basic_modules.basic_dialogs.ImportManuallyLoader.time_to_secs">
+<code class="descname">time_to_secs</code><span class="sig-paren">(</span><em>seconds</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.ImportManuallyLoader.time_to_secs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the given seconds to a time-format.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>seconds</strong> &#8211; Seconds</li>
+<li><strong>seconds</strong> &#8211; int</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Time-format</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="basic_modules.basic_dialogs.ProcessDialog">
+<em class="property">class </em><code class="descclassname">basic_modules.basic_dialogs.</code><code class="descname">ProcessDialog</code><span class="sig-paren">(</span><em>title</em>, <em>max_n</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.ProcessDialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a dialog to show the progress of the process</p>
+<dl class="method">
+<dt id="basic_modules.basic_dialogs.ProcessDialog.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.ProcessDialog.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the progress-dialog.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="basic_modules.basic_dialogs.ProcessDialog.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>n=-1</em>, <em>msg=''</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.ProcessDialog.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the state of the progress.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>n</strong> (<em>int</em>) &#8211; Step</li>
+<li><strong>msg</strong> (<em>string</em>) &#8211; Description for the step</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="basic_modules.basic_dialogs.SaveDialog">
+<em class="property">class </em><code class="descclassname">basic_modules.basic_dialogs.</code><code class="descname">SaveDialog</code><a class="headerlink" href="#basic_modules.basic_dialogs.SaveDialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dialog to save files.</p>
+<dl class="method">
+<dt id="basic_modules.basic_dialogs.SaveDialog.open">
+<code class="descname">open</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.SaveDialog.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens a dialog to select to select the store-path</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The selected path</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="basic_modules.basic_dialogs.StateDialogs">
+<em class="property">class </em><code class="descclassname">basic_modules.basic_dialogs.</code><code class="descname">StateDialogs</code><a class="headerlink" href="#basic_modules.basic_dialogs.StateDialogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dialogs to show the process state.</p>
+<dl class="method">
+<dt id="basic_modules.basic_dialogs.StateDialogs.open_cancel">
+<code class="descname">open_cancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.StateDialogs.open_cancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens the dialog to show that the process wasn&#8217;t executed successfully.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="basic_modules.basic_dialogs.StateDialogs.open_successful">
+<code class="descname">open_successful</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.StateDialogs.open_successful" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens the dialog to show that the process was executed successfully.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="basic_modules.basic_dialogs.WarningDialog">
+<em class="property">class </em><code class="descclassname">basic_modules.basic_dialogs.</code><code class="descname">WarningDialog</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.WarningDialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dialog to show warnings.</p>
+<dl class="method">
+<dt id="basic_modules.basic_dialogs.WarningDialog.open">
+<code class="descname">open</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.WarningDialog.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens a dialog to inform the user that the process will delete data
+by exit the application</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns True if the user press OK, False otherwise</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="basic_modules.basic_dialogs.WarningSystemDialogs">
+<em class="property">class </em><code class="descclassname">basic_modules.basic_dialogs.</code><code class="descname">WarningSystemDialogs</code><a class="headerlink" href="#basic_modules.basic_dialogs.WarningSystemDialogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dialogs to warn the user that can lost some data by closing the app.</p>
+<dl class="method">
+<dt id="basic_modules.basic_dialogs.WarningSystemDialogs.open_exit">
+<code class="descname">open_exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.WarningSystemDialogs.open_exit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens a dialog to inform the user that the process will delete data
+by exit the application</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns True if the user press OK, False otherwise</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="basic_modules.basic_dialogs.WarningSystemDialogs.open_restart">
+<code class="descname">open_restart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_dialogs.WarningSystemDialogs.open_restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens a dialog to inform the user that the process will delete data
+by starting a new experiment</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns True if the user press OK, False otherwise</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_dialogs.imread">
+<code class="descclassname">basic_modules.basic_dialogs.</code><code class="descname">imread</code><span class="sig-paren">(</span><em>filename</em><span class="optional">[</span>, <em>flags</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; retval<a class="headerlink" href="#basic_modules.basic_dialogs.imread" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_dialogs.imwrite">
+<code class="descclassname">basic_modules.basic_dialogs.</code><code class="descname">imwrite</code><span class="sig-paren">(</span><em>filename</em>, <em>img</em><span class="optional">[</span>, <em>params</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; retval<a class="headerlink" href="#basic_modules.basic_dialogs.imwrite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_dialogs.resize">
+<code class="descclassname">basic_modules.basic_dialogs.</code><code class="descname">resize</code><span class="sig-paren">(</span><em>src</em>, <em>dsize</em><span class="optional">[</span>, <em>dst</em><span class="optional">[</span>, <em>fx</em><span class="optional">[</span>, <em>fy</em><span class="optional">[</span>, <em>interpolation</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; dst<a class="headerlink" href="#basic_modules.basic_dialogs.resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-basic_modules.basic_methods">
+<span id="basic-methods"></span><h3>basic_methods<a class="headerlink" href="#module-basic_modules.basic_methods" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="basic_modules.basic_methods.addWeighted">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">addWeighted</code><span class="sig-paren">(</span><em>src1</em>, <em>alpha</em>, <em>src2</em>, <em>beta</em>, <em>gamma</em><span class="optional">[</span>, <em>dst</em><span class="optional">[</span>, <em>dtype</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; dst<a class="headerlink" href="#basic_modules.basic_methods.addWeighted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.clear_folder">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">clear_folder</code><span class="sig-paren">(</span><em>directory</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_methods.clear_folder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes all files of the directory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>directory</strong> (<em>string</em>) &#8211; Path to the directory</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.clear_storage_temp">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">clear_storage_temp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_methods.clear_storage_temp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears the whole storage-temp-folder</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.clear_temp_folder">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">clear_temp_folder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_methods.clear_temp_folder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears the whole temp-folder</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.convert_date_to_string">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">convert_date_to_string</code><span class="sig-paren">(</span><em>date</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_methods.convert_date_to_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the given date to a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>date</strong> (<em>Datetime</em>) &#8211; Date which should convert</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Converted string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.convert_number">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">convert_number</code><span class="sig-paren">(</span><em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_methods.convert_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the given number to a string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>n</strong> (<em>int</em>) &#8211; Number</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The converted number</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.convert_string_to_date">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">convert_string_to_date</code><span class="sig-paren">(</span><em>date</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_methods.convert_string_to_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the given string to a date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>date</strong> (<em>string</em>) &#8211; Date in the format YYYY-mm-dd</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The date</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">datetime</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.create_dir">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">create_dir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_methods.create_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates all directories. If the directory exists the
+method will do nothing.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.create_folder">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">create_folder</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_methods.create_folder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates all directories of the application.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.create_logger">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">create_logger</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_methods.create_logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a logger to log all actions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>string</em>) &#8211; Name of the logger</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Logger</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.create_max_strain_image">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">create_max_strain_image</code><span class="sig-paren">(</span><em>fpath</em>, <em>image_path</em>, <em>dst_img</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_methods.create_max_strain_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the max-strain image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fpath</strong> (<em>string</em>) &#8211; Path to the csv-file</li>
+<li><strong>image_path</strong> (<em>string</em>) &#8211; Path to the image</li>
+<li><strong>dst_img</strong> &#8211; </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">average value</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.create_strain_image">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">create_strain_image</code><span class="sig-paren">(</span><em>m</em>, <em>arr</em>, <em>img</em>, <em>dst_img</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_methods.create_strain_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the strain images and save it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>m</strong> (<em>float</em>) &#8211; Average value of the strain-value</li>
+<li><strong>arr</strong> (<em>ndarray</em>) &#8211; Strain-values</li>
+<li><strong>img</strong> (<em>ndarray</em>) &#8211; Image</li>
+<li><strong>dst_img</strong> (<em>string</em>) &#8211; Destination path</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.create_strain_images">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">create_strain_images</code><span class="sig-paren">(</span><em>folder</em>, <em>fcsv</em>, <em>fimg</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_methods.create_strain_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a strain image with the given image and the given csv-file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>folder</strong> (<em>string</em>) &#8211; Folder where be located the csv-file</li>
+<li><strong>fcsv</strong> (<em>string</em>) &#8211; csv-file</li>
+<li><strong>fimg</strong> (<em>string</em>) &#8211; Name of the result image-file</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.file_exist_in_dir">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">file_exist_in_dir</code><span class="sig-paren">(</span><em>fdir</em>, <em>fname</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_methods.file_exist_in_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether the given file exist in the given directory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if the file is in the directory, False otherwise.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.get_all_files">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">get_all_files</code><span class="sig-paren">(</span><em>directory</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_methods.get_all_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all files of the directory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>directory</strong> (<em>string</em>) &#8211; Path to the directory</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Paths of all files</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.imread">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">imread</code><span class="sig-paren">(</span><em>filename</em><span class="optional">[</span>, <em>flags</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; retval<a class="headerlink" href="#basic_modules.basic_methods.imread" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.imwrite">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">imwrite</code><span class="sig-paren">(</span><em>filename</em>, <em>img</em><span class="optional">[</span>, <em>params</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; retval<a class="headerlink" href="#basic_modules.basic_methods.imwrite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.number_of_files">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">number_of_files</code><span class="sig-paren">(</span><em>directory</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_methods.number_of_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of files</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>directory</strong> (<em>string</em>) &#8211; Path to the directory</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Number of files</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.resize">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">resize</code><span class="sig-paren">(</span><em>src</em>, <em>dsize</em><span class="optional">[</span>, <em>dst</em><span class="optional">[</span>, <em>fx</em><span class="optional">[</span>, <em>fy</em><span class="optional">[</span>, <em>interpolation</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; dst<a class="headerlink" href="#basic_modules.basic_methods.resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.resize_image">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">resize_image</code><span class="sig-paren">(</span><em>fpath</em>, <em>draw_roi=False</em>, <em>after_experiment=False</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_methods.resize_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resizes the images and save them in the temp-folder</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fpath</strong> (<em>string</em>) &#8211; Path to the image</li>
+<li><strong>draw_roi</strong> (<em>Bool</em>) &#8211; Overdraw the ROI about the image (optional)</li>
+<li><strong>after_experiment</strong> (<em>Bool</em>) &#8211; Necessary if the project was loaded (optional)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.resize_strain_images">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">resize_strain_images</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_methods.resize_strain_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resizes all strain-images in the folder: /evaluation/results/normal</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.secs_to_time">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">secs_to_time</code><span class="sig-paren">(</span><em>seconds</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_methods.secs_to_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the given seconds to a time-format</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>seconds</strong> &#8211; Seconds</li>
+<li><strong>seconds</strong> &#8211; int</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Time-format</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic_modules.basic_methods.time_to_secs">
+<code class="descclassname">basic_modules.basic_methods.</code><code class="descname">time_to_secs</code><span class="sig-paren">(</span><em>tfmt</em><span class="sig-paren">)</span><a class="headerlink" href="#basic_modules.basic_methods.time_to_secs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the given time-format to seconds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tfmt</strong> (<em>string</em>) &#8211; Time-format</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">seconds</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="camera">
+<h2>camera<a class="headerlink" href="#camera" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-camera.camera_interfaces">
+<span id="interfaces"></span><h3>Interfaces<a class="headerlink" href="#module-camera.camera_interfaces" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="camera.camera_interfaces.ICameraHandler">
+<em class="property">class </em><code class="descclassname">camera.camera_interfaces.</code><code class="descname">ICameraHandler</code><a class="headerlink" href="#camera.camera_interfaces.ICameraHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>The camera-handler communicates with the other components
+and calls the functions of the selected camera-model</p>
+<dl class="method">
+<dt id="camera.camera_interfaces.ICameraHandler.add_listener">
+<code class="descname">add_listener</code><span class="sig-paren">(</span><em>listener</em><span class="sig-paren">)</span><a class="headerlink" href="#camera.camera_interfaces.ICameraHandler.add_listener" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a listener in the internal list to inform about modifications.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>listener</strong> (<em>object</em>) &#8211; Listener</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="camera.camera_interfaces.ICameraHandler.download_last_image">
+<code class="descname">download_last_image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#camera.camera_interfaces.ICameraHandler.download_last_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads the last image in the full-resolution and as a preview</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="camera.camera_interfaces.ICameraHandler.download_reference_image">
+<code class="descname">download_reference_image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#camera.camera_interfaces.ICameraHandler.download_reference_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads the last taken image and save it as the reference image</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="camera.camera_interfaces.ICameraListener">
+<em class="property">class </em><code class="descclassname">camera.camera_interfaces.</code><code class="descname">ICameraListener</code><a class="headerlink" href="#camera.camera_interfaces.ICameraListener" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interface to inform the listeners about new images</p>
+<dl class="method">
+<dt id="camera.camera_interfaces.ICameraListener.update_downloaded_image">
+<code class="descname">update_downloaded_image</code><span class="sig-paren">(</span><em>fname</em><span class="sig-paren">)</span><a class="headerlink" href="#camera.camera_interfaces.ICameraListener.update_downloaded_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fname</strong> (<em>string</em>) &#8211; Name of the file</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="camera.camera_interfaces.ICameraListener.update_downloaded_preview">
+<code class="descname">update_downloaded_preview</code><span class="sig-paren">(</span><em>fname</em><span class="sig-paren">)</span><a class="headerlink" href="#camera.camera_interfaces.ICameraListener.update_downloaded_preview" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the preview</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fname</strong> (<em>string</em>) &#8211; Name of the file</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="camera.camera_interfaces.ICameraProperties">
+<em class="property">class </em><code class="descclassname">camera.camera_interfaces.</code><code class="descname">ICameraProperties</code><a class="headerlink" href="#camera.camera_interfaces.ICameraProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interface for the camera properties.</p>
+<dl class="method">
+<dt id="camera.camera_interfaces.ICameraProperties.generate_next_file">
+<code class="descname">generate_next_file</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#camera.camera_interfaces.ICameraProperties.generate_next_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>With the knowledge of the last file-name can the 
+next file generated.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>f</strong> (<em>string</em>) &#8211; Name of the file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The generated file-name</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="camera.camera_interfaces.ICameraProperties.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#camera.camera_interfaces.ICameraProperties.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the properties of the selected camera.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>string</em>) &#8211; Name of the camera</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="camera.camera_interfaces.ICameraProperties.save_properties">
+<code class="descname">save_properties</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#camera.camera_interfaces.ICameraProperties.save_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the properties of the camera.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-camera.camera_selector">
+<span id="selector"></span><h3>Selector<a class="headerlink" href="#module-camera.camera_selector" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="camera.camera_selector.CameraSelector">
+<em class="property">class </em><code class="descclassname">camera.camera_selector.</code><code class="descname">CameraSelector</code><a class="headerlink" href="#camera.camera_selector.CameraSelector" title="Permalink to this definition">¶</a></dt>
+<dd><p>CameraSelector was developed to make it possible to 
+add new transfer type.</p>
+<dl class="method">
+<dt id="camera.camera_selector.CameraSelector.add_listener">
+<code class="descname">add_listener</code><span class="sig-paren">(</span><em>listener</em><span class="sig-paren">)</span><a class="headerlink" href="#camera.camera_selector.CameraSelector.add_listener" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a listener in the internal of all types.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>listener</strong> (<em>object</em>) &#8211; Listener</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="camera.camera_selector.CameraSelector.download_last_image">
+<code class="descname">download_last_image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#camera.camera_selector.CameraSelector.download_last_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads the last image in the full-resolution and as a preview</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="camera.camera_selector.CameraSelector.download_reference_image">
+<code class="descname">download_reference_image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#camera.camera_selector.CameraSelector.download_reference_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads the last taken image and save it as the reference image</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="camera.camera_selector.CameraSelector.selected_changed">
+<code class="descname">selected_changed</code><span class="sig-paren">(</span><em>selected_key</em><span class="sig-paren">)</span><a class="headerlink" href="#camera.camera_selector.CameraSelector.selected_changed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the view when the selected_key has changed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selected_key</strong> (<em>string</em>) &#8211; Selected transfer-type</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-camera.http_camera">
+<span id="http-camera"></span><h3>HTTP-Camera<a class="headerlink" href="#module-camera.http_camera" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="camera.http_camera.HTTPCameraHandler">
+<em class="property">class </em><code class="descclassname">camera.http_camera.</code><code class="descname">HTTPCameraHandler</code><a class="headerlink" href="#camera.http_camera.HTTPCameraHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles the communication with the components and the camera.
+The HTTPCameraHandler transfer the images via HTTP-request</p>
+<dl class="method">
+<dt id="camera.http_camera.HTTPCameraHandler.download_last_image">
+<code class="descname">download_last_image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#camera.http_camera.HTTPCameraHandler.download_last_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads the last image in the full-resolution and as a preview</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="camera.http_camera.HTTPCameraHandler.download_reference_image">
+<code class="descname">download_reference_image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#camera.http_camera.HTTPCameraHandler.download_reference_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads the last taken image and save it as the reference image</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="camera.http_camera.HTTPCameraProperties">
+<em class="property">class </em><code class="descclassname">camera.http_camera.</code><code class="descname">HTTPCameraProperties</code><span class="sig-paren">(</span><em>create_default=True</em><span class="sig-paren">)</span><a class="headerlink" href="#camera.http_camera.HTTPCameraProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the camera properties with a HTTP-interface. 
+By defaults will set the camera properties of the model Pentax K-70.</p>
+<dl class="method">
+<dt id="camera.http_camera.HTTPCameraProperties.generate_next_file">
+<code class="descname">generate_next_file</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#camera.http_camera.HTTPCameraProperties.generate_next_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>With the knowledge of the last file-name can the next file generated.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="camera.http_camera.HTTPCameraProperties.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#camera.http_camera.HTTPCameraProperties.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the properties by the given file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file</strong> (<em>string</em>) &#8211; File of the camera.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="camera.http_camera.HTTPCameraProperties.save_properties">
+<code class="descname">save_properties</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#camera.http_camera.HTTPCameraProperties.save_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the properties of the camera.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="camera.http_camera.HTTPCameraProperties.selected_changed">
+<code class="descname">selected_changed</code><span class="sig-paren">(</span><em>selected_key</em><span class="sig-paren">)</span><a class="headerlink" href="#camera.http_camera.HTTPCameraProperties.selected_changed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the properties when the user select a new camera.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="camera.http_camera.HTTPCameraProperties.update_camera_models">
+<code class="descname">update_camera_models</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#camera.http_camera.HTTPCameraProperties.update_camera_models" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the camera models in the Combobox.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="camera.http_camera.HTTPCameraProperties.update_properties">
+<code class="descname">update_properties</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#camera.http_camera.HTTPCameraProperties.update_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the properties of the camera.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>Dictionary</em>) &#8211; Properties of the camera.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-experiment._experiment">
+<span id="experiment"></span><h2>Experiment<a class="headerlink" href="#module-experiment._experiment" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="experiment._experiment.Experiment">
+<em class="property">class </em><code class="descclassname">experiment._experiment.</code><code class="descname">Experiment</code><span class="sig-paren">(</span><em>parent</em>, <em>record_mode</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment._experiment.Experiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Experiment handles the interaction with the recorder 
+of the application. The handler makes sure that a experiment can not 
+started while it&#8221;s running. Furthermore the handler checks 
+whether the experiment has all require properties before 
+it can start.</p>
+<dl class="method">
+<dt id="experiment._experiment.Experiment.create_reference_image">
+<code class="descname">create_reference_image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment._experiment.Experiment.create_reference_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes the reference image and transfer the image to the camera</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment._experiment.Experiment.get_correlation_properties">
+<code class="descname">get_correlation_properties</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment._experiment.Experiment.get_correlation_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the properties for the correlation</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment._experiment.Experiment.get_recorded_values">
+<code class="descname">get_recorded_values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment._experiment.Experiment.get_recorded_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the recorded values</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment._experiment.Experiment.get_user_serie_type">
+<code class="descname">get_user_serie_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment._experiment.Experiment.get_user_serie_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the series of the type</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment._experiment.Experiment.is_valid">
+<code class="descname">is_valid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment._experiment.Experiment.is_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether the components of the experiment are valid</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment._experiment.Experiment.measuring_card_is_valid">
+<code class="descname">measuring_card_is_valid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment._experiment.Experiment.measuring_card_is_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether the measuring card is valid</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment._experiment.Experiment.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment._experiment.Experiment.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the properties of the experiment body</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment._experiment.Experiment.send_image">
+<code class="descname">send_image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment._experiment.Experiment.send_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends the last recorded image to the server</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment._experiment.Experiment.update_reference">
+<code class="descname">update_reference</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment._experiment.Experiment.update_reference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the reference image</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment._experiment.Experiment.update_series">
+<code class="descname">update_series</code><span class="sig-paren">(</span><em>experiment</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment._experiment.Experiment.update_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the series of the given experiment-type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>experiment</strong> (<em>string</em>) &#8211; Experiment-type</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="module-experiment.correlation.methods.sensor">
+<span id="correlation"></span><h3>correlation<a class="headerlink" href="#module-experiment.correlation.methods.sensor" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="experiment.correlation.methods.sensor.Sensor">
+<em class="property">class </em><code class="descclassname">experiment.correlation.methods.sensor.</code><code class="descname">Sensor</code><span class="sig-paren">(</span><em>name</em>, <em>points=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.correlation.methods.sensor.Sensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a virtual travel sensor.</p>
+<dl class="method">
+<dt id="experiment.correlation.methods.sensor.Sensor.append_values">
+<code class="descname">append_values</code><span class="sig-paren">(</span><em>values</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.correlation.methods.sensor.Sensor.append_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Appends values from a image to the values container.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>values</strong> (<em>List</em><em>(</em><em>float</em><em>)</em><em></em>) &#8211; Recorded values of the image.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.correlation.methods.sensor.Sensor.get_average">
+<code class="descname">get_average</code><span class="sig-paren">(</span><em>arr</em>, <em>y</em>, <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.correlation.methods.sensor.Sensor.get_average" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the average-value of the circle by the given positon.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.correlation.methods.sensor.Sensor.get_average_values">
+<code class="descname">get_average_values</code><span class="sig-paren">(</span><em>arr</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.correlation.methods.sensor.Sensor.get_average_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the average-value of the circles.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>arr</strong> (<em>ndarray</em>) &#8211; Values</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Average values</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.correlation.methods.sensor.Sensor.get_values">
+<code class="descname">get_values</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.correlation.methods.sensor.Sensor.get_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the values of the given column-index. 
+[u-displacement, v-displacement, strain_exx,strain_ex,strain_eyy]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int.</em>) &#8211; Index of the column.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The values of the column.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="experiment.correlation.methods.sensor.Sensor.load">
+<em class="property">static </em><code class="descname">load</code><span class="sig-paren">(</span><em>fpath</em>, <em>values=True</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.correlation.methods.sensor.Sensor.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the properties of the travel-sensor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fpath</strong> (<em>string.</em>) &#8211; Name of the file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The loaded travel-sensor.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#experiment.correlation.methods.sensor.Sensor" title="experiment.correlation.methods.sensor.Sensor">Sensor</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.correlation.methods.sensor.Sensor.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.correlation.methods.sensor.Sensor.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the properties in a npy-file and json-file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="experiment.correlation.methods.sensor.SensorDialog">
+<em class="property">class </em><code class="descclassname">experiment.correlation.methods.sensor.</code><code class="descname">SensorDialog</code><a class="headerlink" href="#experiment.correlation.methods.sensor.SensorDialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dialog to set the sensors manually.</p>
+<dl class="method">
+<dt id="experiment.correlation.methods.sensor.SensorDialog.open_dialog">
+<code class="descname">open_dialog</code><span class="sig-paren">(</span><em>sensors</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.correlation.methods.sensor.SensorDialog.open_dialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens a dialog to set the sensors.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sensors</strong> (<em>List</em><em>(</em><a class="reference internal" href="#experiment.correlation.methods.sensor.Sensor" title="experiment.correlation.methods.sensor.Sensor"><em>Sensor</em></a><em>)</em><em></em>) &#8211; Already defined sensors</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Defined sensors</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List(<a class="reference internal" href="#experiment.correlation.methods.sensor.Sensor" title="experiment.correlation.methods.sensor.Sensor">Sensor</a>)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="experiment.correlation.methods.sensor.imread">
+<code class="descclassname">experiment.correlation.methods.sensor.</code><code class="descname">imread</code><span class="sig-paren">(</span><em>filename</em><span class="optional">[</span>, <em>flags</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; retval<a class="headerlink" href="#experiment.correlation.methods.sensor.imread" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="experiment.correlation.methods.sensor.imwrite">
+<code class="descclassname">experiment.correlation.methods.sensor.</code><code class="descname">imwrite</code><span class="sig-paren">(</span><em>filename</em>, <em>img</em><span class="optional">[</span>, <em>params</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; retval<a class="headerlink" href="#experiment.correlation.methods.sensor.imwrite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="experiment.correlation.methods.sensor.resize">
+<code class="descclassname">experiment.correlation.methods.sensor.</code><code class="descname">resize</code><span class="sig-paren">(</span><em>src</em>, <em>dsize</em><span class="optional">[</span>, <em>dst</em><span class="optional">[</span>, <em>fx</em><span class="optional">[</span>, <em>fy</em><span class="optional">[</span>, <em>interpolation</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; dst<a class="headerlink" href="#experiment.correlation.methods.sensor.resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-experiment.correlation.methods.method_selector"></span><dl class="class">
+<dt id="experiment.correlation.methods.method_selector.MethodSelector">
+<em class="property">class </em><code class="descclassname">experiment.correlation.methods.method_selector.</code><code class="descname">MethodSelector</code><a class="headerlink" href="#experiment.correlation.methods.method_selector.MethodSelector" title="Permalink to this definition">¶</a></dt>
+<dd><p>MethodSelector makes it possible to switch the correlate-method.</p>
+<dl class="method">
+<dt id="experiment.correlation.methods.method_selector.MethodSelector.correlate_all_images">
+<code class="descname">correlate_all_images</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.correlation.methods.method_selector.MethodSelector.correlate_all_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Correlates all images with the specific method.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.correlation.methods.method_selector.MethodSelector.get_selected_value">
+<code class="descname">get_selected_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.correlation.methods.method_selector.MethodSelector.get_selected_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the selected value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.correlation.methods.method_selector.MethodSelector.selected_changed">
+<code class="descname">selected_changed</code><span class="sig-paren">(</span><em>selected_key</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.correlation.methods.method_selector.MethodSelector.selected_changed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Informs the parent that the selected method has changed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selected_key</strong> (<em>string</em>) &#8211; Name of the current selected key</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-experiment.correlation.correlation_properties"></span><dl class="class">
+<dt id="experiment.correlation.correlation_properties.CorrelationProperties">
+<em class="property">class </em><code class="descclassname">experiment.correlation.correlation_properties.</code><code class="descname">CorrelationProperties</code><span class="sig-paren">(</span><em>experiment</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.correlation.correlation_properties.CorrelationProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the properties for the correlation</p>
+<dl class="method">
+<dt id="experiment.correlation.correlation_properties.CorrelationProperties.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>input_ports</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.correlation.correlation_properties.CorrelationProperties.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the correlation properties</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.correlation.correlation_properties.CorrelationProperties.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.correlation.correlation_properties.CorrelationProperties.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the properties in the temp-folder</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-experiment.recorder.phase_editor.phases">
+<span id="recorder"></span><h3>recorder<a class="headerlink" href="#module-experiment.recorder.phase_editor.phases" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="experiment.recorder.phase_editor.phases.DialogPhase">
+<em class="property">class </em><code class="descclassname">experiment.recorder.phase_editor.phases.</code><code class="descname">DialogPhase</code><a class="headerlink" href="#experiment.recorder.phase_editor.phases.DialogPhase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for the dialogs to create a instance of 
+the subclasses of phase. The dialogs should checks all 
+attributes and make sure that a invalid phase can not created.</p>
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phases.DialogPhase.load">
+<code class="descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.DialogPhase.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a instance of the class Phase with the attributes
+of the view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Created phase</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#experiment.recorder.phase_editor.phases.Phase" title="experiment.recorder.phase_editor.phases.Phase">Phase</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phases.DialogPhase.open_dialog">
+<code class="descname">open_dialog</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.DialogPhase.open_dialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open the edit dialog</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="experiment.recorder.phase_editor.phases.DialogPhaseTime">
+<em class="property">class </em><code class="descclassname">experiment.recorder.phase_editor.phases.</code><code class="descname">DialogPhaseTime</code><a class="headerlink" href="#experiment.recorder.phase_editor.phases.DialogPhaseTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dialog to create a instance of the class
+PhaseTime. The dialog checks all attributes and make sure
+that a invalid phase can not created.</p>
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phases.DialogPhaseTime.load">
+<code class="descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.DialogPhaseTime.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a instance of the class PhaseTime with the attributes            of the view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Time based phase</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#experiment.recorder.phase_editor.phases.PhaseTime" title="experiment.recorder.phase_editor.phases.PhaseTime">PhaseTime</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="experiment.recorder.phase_editor.phases.DialogPhaseValue">
+<em class="property">class </em><code class="descclassname">experiment.recorder.phase_editor.phases.</code><code class="descname">DialogPhaseValue</code><a class="headerlink" href="#experiment.recorder.phase_editor.phases.DialogPhaseValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dialog to create a instance of the class
+PhaseValue. The dialog checks all attributes and make sure
+that a invalid phase can not created.</p>
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phases.DialogPhaseValue.load">
+<code class="descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.DialogPhaseValue.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a instance of the class PhaseValue with the attributes            of the view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Value based phase</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#experiment.recorder.phase_editor.phases.PhaseValue" title="experiment.recorder.phase_editor.phases.PhaseValue">PhaseValue</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="experiment.recorder.phase_editor.phases.Phase">
+<em class="property">class </em><code class="descclassname">experiment.recorder.phase_editor.phases.</code><code class="descname">Phase</code><span class="sig-paren">(</span><em>experiment</em>, <em>name</em>, <em>reset=True</em>, <em>reset_time=0.1</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.Phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for the phases. Every phase must 
+implement a start-method and belongs a experiment. 
+Optional the phase can have a name for a easy recognizing.</p>
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phases.Phase.cancel">
+<code class="descname">cancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.Phase.cancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel the phase.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="experiment.recorder.phase_editor.phases.Phase.load">
+<em class="property">static </em><code class="descname">load</code><span class="sig-paren">(</span><em>args</em>, <em>experiment</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.Phase.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a instance with the given attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>args</strong> (<em>Dictionary</em>) &#8211; Attributes which are saved in the json-file</li>
+<li><strong>experiment</strong> (<em>ExperimentModel</em>) &#8211; Related experiment</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Instance with the loaded attributes</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#experiment.recorder.phase_editor.phases.Phase" title="experiment.recorder.phase_editor.phases.Phase">Phase</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phases.Phase.reset_phase">
+<code class="descname">reset_phase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.Phase.reset_phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the phase.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phases.Phase.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.Phase.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the phase as a dictionary for a JSON file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary with all attributes of the phase</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phases.Phase.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.Phase.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the phase.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="experiment.recorder.phase_editor.phases.PhasePause">
+<em class="property">class </em><code class="descclassname">experiment.recorder.phase_editor.phases.</code><code class="descname">PhasePause</code><span class="sig-paren">(</span><em>experiment</em>, <em>edit_dialog</em>, <em>limit</em>, <em>smaller</em>, <em>time</em>, <em>port_id</em>, <em>name</em>, <em>reset=True</em>, <em>reset_time=0.1</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.PhasePause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a phase which does not recordings.</p>
+<dl class="staticmethod">
+<dt id="experiment.recorder.phase_editor.phases.PhasePause.load">
+<em class="property">static </em><code class="descname">load</code><span class="sig-paren">(</span><em>args</em>, <em>experiment</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.PhasePause.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a instance with the given attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>args</strong> (<em>Dictionary</em>) &#8211; Attributes which are saved in the json-file</li>
+<li><strong>experiment</strong> (<em>ExperimentModel</em>) &#8211; Related experiment</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Instance with the loaded attributes</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#experiment.recorder.phase_editor.phases.PhaseValue" title="experiment.recorder.phase_editor.phases.PhaseValue">PhaseValue</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phases.PhasePause.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.PhasePause.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the phase as a dictionary for a JSON file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary with all attributes of the phase</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phases.PhasePause.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.PhasePause.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the phase.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="experiment.recorder.phase_editor.phases.PhaseTime">
+<em class="property">class </em><code class="descclassname">experiment.recorder.phase_editor.phases.</code><code class="descname">PhaseTime</code><span class="sig-paren">(</span><em>experiment</em>, <em>edit_dialog</em>, <em>interval</em>, <em>ticks</em>, <em>name</em>, <em>reset=True</em>, <em>reset_time=0.1</em>, <em>interval_str=''</em>, <em>ticks_str=''</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.PhaseTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a phase which is time based.</p>
+<dl class="staticmethod">
+<dt id="experiment.recorder.phase_editor.phases.PhaseTime.load">
+<em class="property">static </em><code class="descname">load</code><span class="sig-paren">(</span><em>args</em>, <em>experiment</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.PhaseTime.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a instance with the given attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>args</strong> (<em>Dictionary</em>) &#8211; Attributes which are saved in the json-file</li>
+<li><strong>experiment</strong> (<em>ExperimentModel</em>) &#8211; Related experiment</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Instance with the loaded attributes</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#experiment.recorder.phase_editor.phases.PhaseTime" title="experiment.recorder.phase_editor.phases.PhaseTime">PhaseTime</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phases.PhaseTime.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.PhaseTime.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the phase as a dictionary for a JSON file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary with all attributes of the phase</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phases.PhaseTime.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.PhaseTime.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the phase.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="experiment.recorder.phase_editor.phases.PhaseValue">
+<em class="property">class </em><code class="descclassname">experiment.recorder.phase_editor.phases.</code><code class="descname">PhaseValue</code><span class="sig-paren">(</span><em>experiment</em>, <em>edit_dialog</em>, <em>start_value</em>, <em>end_value</em>, <em>ticks</em>, <em>port_id</em>, <em>name</em>, <em>reset=True</em>, <em>reset_time=0.1</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.PhaseValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a phase which is value based.</p>
+<dl class="staticmethod">
+<dt id="experiment.recorder.phase_editor.phases.PhaseValue.load">
+<em class="property">static </em><code class="descname">load</code><span class="sig-paren">(</span><em>args</em>, <em>experiment</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.PhaseValue.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a instance with the given attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>args</strong> (<em>Dictionary</em>) &#8211; Attributes which are saved in the json-file</li>
+<li><strong>experiment</strong> (<em>ExperimentModel</em>) &#8211; Related experiment</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Instance with the loaded attributes</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#experiment.recorder.phase_editor.phases.PhaseValue" title="experiment.recorder.phase_editor.phases.PhaseValue">PhaseValue</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phases.PhaseValue.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.PhaseValue.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the phase as a dictionary for a JSON file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary with all attributes of the phase</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phases.PhaseValue.start">
+<code class="descname">start</code><span class="sig-paren">(</span><em>first_record=True</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phases.PhaseValue.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the phase.</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-experiment.recorder.phase_editor.phase_container"></span><dl class="class">
+<dt id="experiment.recorder.phase_editor.phase_container.Cycle">
+<em class="property">class </em><code class="descclassname">experiment.recorder.phase_editor.phase_container.</code><code class="descname">Cycle</code><span class="sig-paren">(</span><em>experiment</em>, <em>edit_dialog</em>, <em>name</em>, <em>phases</em>, <em>repeats</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phase_container.Cycle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a cycle which consists phases and can repeated.</p>
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phase_container.Cycle.cancel">
+<code class="descname">cancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phase_container.Cycle.cancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel the phase.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="experiment.recorder.phase_editor.phase_container.Cycle.load">
+<em class="property">static </em><code class="descname">load</code><span class="sig-paren">(</span><em>args</em>, <em>experiment</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phase_container.Cycle.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a instance with the given attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>args</strong> (<em>Dictionary</em>) &#8211; Attributes which are saved in the json-file</li>
+<li><strong>experiment</strong> (<em>ExperimentModel</em>) &#8211; Related experiment</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Instance with the loaded attributes</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#experiment.recorder.phase_editor.phase_container.Cycle" title="experiment.recorder.phase_editor.phase_container.Cycle">Cycle</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phase_container.Cycle.reset_phase">
+<code class="descname">reset_phase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phase_container.Cycle.reset_phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset all phases of the cycle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phase_container.Cycle.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phase_container.Cycle.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the phase as a dictionary for a JSON file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary with all attributes of the phase</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phase_container.Cycle.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phase_container.Cycle.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the phase.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="experiment.recorder.phase_editor.phase_container.DialogCycle">
+<em class="property">class </em><code class="descclassname">experiment.recorder.phase_editor.phase_container.</code><code class="descname">DialogCycle</code><a class="headerlink" href="#experiment.recorder.phase_editor.phase_container.DialogCycle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dialog to create a instance of the class
+Cycle. The dialog checks all attributes and make sure
+that a invalid cycle can not created.</p>
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phase_container.DialogCycle.load">
+<code class="descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phase_container.DialogCycle.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a instance of the class Cycle with the attributes            of the view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Created cycle</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#experiment.recorder.phase_editor.phase_container.Cycle" title="experiment.recorder.phase_editor.phase_container.Cycle">Cycle</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="experiment.recorder.phase_editor.phase_container.IPhaseContainer">
+<em class="property">class </em><code class="descclassname">experiment.recorder.phase_editor.phase_container.</code><code class="descname">IPhaseContainer</code><a class="headerlink" href="#experiment.recorder.phase_editor.phase_container.IPhaseContainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for objects which contains all phases</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="experiment.recorder.phase_editor.phase_container.PhaseEditor">
+<em class="property">class </em><code class="descclassname">experiment.recorder.phase_editor.phase_container.</code><code class="descname">PhaseEditor</code><span class="sig-paren">(</span><em>record_mode</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phase_container.PhaseEditor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Editor to manage the phases of the experiment.</p>
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phase_container.PhaseEditor.load">
+<code class="descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phase_container.PhaseEditor.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the given phases</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>phases</strong> (<em>List</em><em>(</em><em></em><em>)</em><em></em>) &#8211; Phases</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.recorder.phase_editor.phase_container.PhaseEditor.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.phase_editor.phase_container.PhaseEditor.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the phases as a json-directory</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-experiment.recorder.experiment_recorder"></span><dl class="class">
+<dt id="experiment.recorder.experiment_recorder.ExperimentRecorder">
+<em class="property">class </em><code class="descclassname">experiment.recorder.experiment_recorder.</code><code class="descname">ExperimentRecorder</code><span class="sig-paren">(</span><em>parent</em>, <em>record_mode</em>, <em>camera_handler</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.experiment_recorder.ExperimentRecorder" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ExperimentRecorder are the component of the Experiment which 
+recorder the experiment. The Object make it possible to 
+define phases with the PhaseEditor. Furthermore it 
+address the measuring card and plot the records in a graph.</p>
+<dl class="method">
+<dt id="experiment.recorder.experiment_recorder.ExperimentRecorder.is_valid">
+<code class="descname">is_valid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.experiment_recorder.ExperimentRecorder.is_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether the configuration of the components are valid</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.recorder.experiment_recorder.ExperimentRecorder.load">
+<code class="descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.experiment_recorder.ExperimentRecorder.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the given phases</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.recorder.experiment_recorder.ExperimentRecorder.save_project">
+<code class="descname">save_project</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.experiment_recorder.ExperimentRecorder.save_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the port as a dictionary for a JSON file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary with all attributes of the port</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.recorder.experiment_recorder.ExperimentRecorder.send_image">
+<code class="descname">send_image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.experiment_recorder.ExperimentRecorder.send_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upload the last recorded image</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.recorder.experiment_recorder.ExperimentRecorder.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.experiment_recorder.ExperimentRecorder.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the experiment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.recorder.experiment_recorder.ExperimentRecorder.use_all_ports">
+<code class="descname">use_all_ports</code><span class="sig-paren">(</span><em>reset=True</em>, <em>reset_time=0.1</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.recorder.experiment_recorder.ExperimentRecorder.use_all_ports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Records all values of the input ports and save them         in the recorder-object. Furthermore the method trigger 
+a digital output signal to all output ports to take a
+picture.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>reset</strong> (<em>bool</em>) &#8211; True if the port should reset, False otherwise</li>
+<li><strong>reset_time</strong> (<em>float</em>) &#8211; Time to pass to reset the port</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-experiment.type.reinforcement.reinforcements">
+<span id="type"></span><h3>type<a class="headerlink" href="#module-experiment.type.reinforcement.reinforcements" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="experiment.type.reinforcement.reinforcements.Bar">
+<em class="property">class </em><code class="descclassname">experiment.type.reinforcement.reinforcements.</code><code class="descname">Bar</code><a class="headerlink" href="#experiment.type.reinforcement.reinforcements.Bar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a bar.</p>
+<dl class="method">
+<dt id="experiment.type.reinforcement.reinforcements.Bar.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.reinforcement.reinforcements.Bar.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the given properties.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>Dictionary</em>) &#8211; All properties of the material</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.type.reinforcement.reinforcements.Bar.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.reinforcement.reinforcements.Bar.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the properties of the bar in a dictionary.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="experiment.type.reinforcement.reinforcements.IReinforcement">
+<em class="property">class </em><code class="descclassname">experiment.type.reinforcement.reinforcements.</code><code class="descname">IReinforcement</code><a class="headerlink" href="#experiment.type.reinforcement.reinforcements.IReinforcement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interface for the reinforcement components.</p>
+<dl class="method">
+<dt id="experiment.type.reinforcement.reinforcements.IReinforcement.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.reinforcement.reinforcements.IReinforcement.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the given properties.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>Dictionary</em>) &#8211; All properties of the material</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.type.reinforcement.reinforcements.IReinforcement.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.reinforcement.reinforcements.IReinforcement.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the properties of the reinforcement in a dictionary.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="experiment.type.reinforcement.reinforcements.Layer">
+<em class="property">class </em><code class="descclassname">experiment.type.reinforcement.reinforcements.</code><code class="descname">Layer</code><a class="headerlink" href="#experiment.type.reinforcement.reinforcements.Layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a layer of the experiment body.</p>
+<dl class="method">
+<dt id="experiment.type.reinforcement.reinforcements.Layer.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.reinforcement.reinforcements.Layer.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the given properties.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>Dictionary</em>) &#8211; All properties of the material</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.type.reinforcement.reinforcements.Layer.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.reinforcement.reinforcements.Layer.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the properties of the layer in a dictionary.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="experiment.type.reinforcement.reinforcements.Material">
+<em class="property">class </em><code class="descclassname">experiment.type.reinforcement.reinforcements.</code><code class="descname">Material</code><a class="headerlink" href="#experiment.type.reinforcement.reinforcements.Material" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a material.</p>
+<dl class="method">
+<dt id="experiment.type.reinforcement.reinforcements.Material.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.reinforcement.reinforcements.Material.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the given properties.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>Dictionary</em>) &#8211; All properties of the material</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.type.reinforcement.reinforcements.Material.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.reinforcement.reinforcements.Material.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the properties of the material in a dictionary.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="experiment.type.reinforcement.reinforcements.Matrix">
+<em class="property">class </em><code class="descclassname">experiment.type.reinforcement.reinforcements.</code><code class="descname">Matrix</code><a class="headerlink" href="#experiment.type.reinforcement.reinforcements.Matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the matrix of the experiment body.</p>
+<dl class="method">
+<dt id="experiment.type.reinforcement.reinforcements.Matrix.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.reinforcement.reinforcements.Matrix.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the given properties.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>Dictionary</em>) &#8211; All properties of the material</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.type.reinforcement.reinforcements.Matrix.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.reinforcement.reinforcements.Matrix.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the properties of the matrix in a dictionary.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="experiment.type.reinforcement.reinforcements.ReinforcementSelector">
+<em class="property">class </em><code class="descclassname">experiment.type.reinforcement.reinforcements.</code><code class="descname">ReinforcementSelector</code><a class="headerlink" href="#experiment.type.reinforcement.reinforcements.ReinforcementSelector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component to define the reinforcement in the experiment body.</p>
+<dl class="method">
+<dt id="experiment.type.reinforcement.reinforcements.ReinforcementSelector.add_reinforcement">
+<code class="descname">add_reinforcement</code><span class="sig-paren">(</span><em>reinforcement</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.reinforcement.reinforcements.ReinforcementSelector.add_reinforcement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new reinforcement.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reinforcement</strong> (<a class="reference internal" href="#experiment.type.reinforcement.reinforcements.IReinforcement" title="experiment.type.reinforcement.reinforcements.IReinforcement"><em>IReinforcement</em></a>) &#8211; The reinforcement</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.type.reinforcement.reinforcements.ReinforcementSelector.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.reinforcement.reinforcements.ReinforcementSelector.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the given properties.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>Dictionary</em>) &#8211; All properties of the material</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.type.reinforcement.reinforcements.ReinforcementSelector.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.reinforcement.reinforcements.ReinforcementSelector.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the properties of the reinforcements and the matrix.</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-experiment.type.shape.all_shapes"></span><dl class="class">
+<dt id="experiment.type.shape.all_shapes.IShape">
+<em class="property">class </em><code class="descclassname">experiment.type.shape.all_shapes.</code><code class="descname">IShape</code><a class="headerlink" href="#experiment.type.shape.all_shapes.IShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Baseclass for the shapes</p>
+<dl class="method">
+<dt id="experiment.type.shape.all_shapes.IShape.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.shape.all_shapes.IShape.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the given properties.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> (<em>Dictionary</em>) &#8211; Properties of the shape.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.type.shape.all_shapes.IShape.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.shape.all_shapes.IShape.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the properties of the shape as a dictionary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Properties</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-experiment.type.shape.shape_selector"></span><dl class="class">
+<dt id="experiment.type.shape.shape_selector.ShapeSelector">
+<em class="property">class </em><code class="descclassname">experiment.type.shape.shape_selector.</code><code class="descname">ShapeSelector</code><a class="headerlink" href="#experiment.type.shape.shape_selector.ShapeSelector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make it possible to choose a shape.</p>
+<dl class="method">
+<dt id="experiment.type.shape.shape_selector.ShapeSelector.get_selected_key">
+<code class="descname">get_selected_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.shape.shape_selector.ShapeSelector.get_selected_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the selected shape-name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Name of the shape.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.type.shape.shape_selector.ShapeSelector.get_selected_value">
+<code class="descname">get_selected_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.shape.shape_selector.ShapeSelector.get_selected_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the selected shape.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Selected shape.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#experiment.type.shape.all_shapes.IShape" title="experiment.type.shape.all_shapes.IShape">IShape</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.type.shape.shape_selector.ShapeSelector.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.shape.shape_selector.ShapeSelector.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the properties by the given date.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>Dictionary.</em>) &#8211; Properties of the shape.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.type.shape.shape_selector.ShapeSelector.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.shape.shape_selector.ShapeSelector.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary to save the shape-properties.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The properties of the shape.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-experiment.type.types.all_types"></span><dl class="class">
+<dt id="experiment.type.types.all_types.IExperimentType">
+<em class="property">class </em><code class="descclassname">experiment.type.types.all_types.</code><code class="descname">IExperimentType</code><a class="headerlink" href="#experiment.type.types.all_types.IExperimentType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bascelass for the experiment-types</p>
+<dl class="method">
+<dt id="experiment.type.types.all_types.IExperimentType.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.types.all_types.IExperimentType.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the given properties</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> (<em>Dictionary</em>) &#8211; Loaded parameters</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="experiment.type.types.all_types.IExperimentType.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.type.types.all_types.IExperimentType.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the properties a dictionary</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-experiment.type.types.type_selector"></span></div>
+</div>
+<div class="section" id="measuring-card">
+<h2>measuring_card<a class="headerlink" href="#measuring-card" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-measuring_card.card">
+<span id="card"></span><h3>Card<a class="headerlink" href="#module-measuring_card.card" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="measuring_card.card.MeasuringCard">
+<em class="property">class </em><code class="descclassname">measuring_card.card.</code><code class="descname">MeasuringCard</code><a class="headerlink" href="#measuring_card.card.MeasuringCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>MeasuringCard represents the measuring card and the functionality 
+of the card. The class provides the reading of the ports 
+and the digital triggering of the ports.</p>
+<dl class="method">
+<dt id="measuring_card.card.MeasuringCard.append_port">
+<code class="descname">append_port</code><span class="sig-paren">(</span><em>port</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.card.MeasuringCard.append_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Appends a port to the measuring card.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>port</strong> (<a class="reference internal" href="#measuring_card.ports.Port" title="measuring_card.ports.Port"><em>Port</em></a>) &#8211; Port which should be add.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">ValueError</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.card.MeasuringCard.get_all_ports">
+<code class="descname">get_all_ports</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.card.MeasuringCard.get_all_ports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all ports</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">All configured ports</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List(<a class="reference internal" href="#measuring_card.ports.Port" title="measuring_card.ports.Port">Port</a>)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.card.MeasuringCard.get_port_name">
+<code class="descname">get_port_name</code><span class="sig-paren">(</span><em>port_id</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.card.MeasuringCard.get_port_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the name by the given port-id</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>port_id</strong> (<em>int</em>) &#8211; Id of the port.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Name of the port</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">ValueError</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.card.MeasuringCard.get_values_as_string">
+<code class="descname">get_values_as_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.card.MeasuringCard.get_values_as_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#8220;Returns the current values of the ports as a string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Recorded values as a string</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.card.MeasuringCard.input_port_exists">
+<code class="descname">input_port_exists</code><span class="sig-paren">(</span><em>port_id</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.card.MeasuringCard.input_port_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether the given port id already exists.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>port_id</strong> (<em>int</em>) &#8211; Id of the port.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the id already exists, False otherwise.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.card.MeasuringCard.is_valid">
+<code class="descname">is_valid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.card.MeasuringCard.is_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether the measuring card have all necessary ports and
+raises a ValueError if something is wrong.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">ValueError</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.card.MeasuringCard.load">
+<code class="descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.card.MeasuringCard.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the properties of the measuring card from a json-file.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="measuring_card.card.MeasuringCard.load_input_ports">
+<em class="property">static </em><code class="descname">load_input_ports</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.card.MeasuringCard.load_input_ports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the input ports from a json-file.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="measuring_card.card.MeasuringCard.load_input_ports_as_dict">
+<em class="property">static </em><code class="descname">load_input_ports_as_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.card.MeasuringCard.load_input_ports_as_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the input ports as a dictionary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.card.MeasuringCard.output_port_exists">
+<code class="descname">output_port_exists</code><span class="sig-paren">(</span><em>port_id</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.card.MeasuringCard.output_port_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether the given port id already exists.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>port_id</strong> (<em>int</em>) &#8211; Id of the port.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the id already exists, False otherwise.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.card.MeasuringCard.record_all_ports">
+<code class="descname">record_all_ports</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.card.MeasuringCard.record_all_ports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Records the value of all ports.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List that contains  tuples like (port_id, value)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.card.MeasuringCard.record_port">
+<code class="descname">record_port</code><span class="sig-paren">(</span><em>port_id</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.card.MeasuringCard.record_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Records the value of the port by the given port-id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>port_id</strong> (<em>int</em>) &#8211; Id of the port.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">(port_id,  value)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">ValueError</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.card.MeasuringCard.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.card.MeasuringCard.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the properties of the measuring card in a json-file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.card.MeasuringCard.trigger_all_ports">
+<code class="descname">trigger_all_ports</code><span class="sig-paren">(</span><em>reset=True</em>, <em>reset_time=0.1</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.card.MeasuringCard.trigger_all_ports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trigger a digital signal to all ports.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>reset</strong> (<em>bool</em>) &#8211; True if the value should reset by a given time</li>
+<li><strong>reset_time</strong> (<em>float</em>) &#8211; Time to pass until reset the value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if the signal was sent, False otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">bool</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">ValueError</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.card.MeasuringCard.trigger_port">
+<code class="descname">trigger_port</code><span class="sig-paren">(</span><em>port_id</em>, <em>reset=False</em>, <em>reset_time=0</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.card.MeasuringCard.trigger_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trigger a digital signal to the given port_id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>port_id</strong> (<em>int</em>) &#8211; Id of the Port.</li>
+<li><strong>reset</strong> (<em>bool</em>) &#8211; True if the value should reset by a given time</li>
+<li><strong>reset_time</strong> (<em>float.</em>) &#8211; Time to pass until reset the value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if the signal was sent, False otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">bool</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">ValueError</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-measuring_card.ports">
+<span id="ports"></span><h3>Ports<a class="headerlink" href="#module-measuring_card.ports" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="measuring_card.ports.DialogPort">
+<em class="property">class </em><code class="descclassname">measuring_card.ports.</code><code class="descname">DialogPort</code><a class="headerlink" href="#measuring_card.ports.DialogPort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for the dialogs to create a instance of 
+the subclasses of port. The dialogs should checks all 
+attributes and make sure that a invalid port can not created.</p>
+<dl class="method">
+<dt id="measuring_card.ports.DialogPort.load">
+<code class="descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.DialogPort.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a instance of the class Por with the attributes
+of the view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Port</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.ports.DialogPort.open_dialog">
+<code class="descname">open_dialog</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.DialogPort.open_dialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open the dialog to input the values for the port.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True, if the user want create a port, False otherwise</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="measuring_card.ports.DialogPortAI">
+<em class="property">class </em><code class="descclassname">measuring_card.ports.</code><code class="descname">DialogPortAI</code><span class="sig-paren">(</span><em>measuring_card</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.DialogPortAI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dialog to create a instance of the class
+PortAI. The dialog checks all attributes and make sure
+that a invalid port can not created.</p>
+<dl class="method">
+<dt id="measuring_card.ports.DialogPortAI.load">
+<code class="descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.DialogPortAI.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a instance of the class PortAI with the attributes            of the view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Analog input port with the attributes.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#measuring_card.ports.PortAI" title="measuring_card.ports.PortAI">PortAI</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.ports.DialogPortAI.open_dialog">
+<code class="descname">open_dialog</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.DialogPortAI.open_dialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open the dialog to input the values for the port.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True, if the user want create a port, False otherwise</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="measuring_card.ports.DialogPortDO">
+<em class="property">class </em><code class="descclassname">measuring_card.ports.</code><code class="descname">DialogPortDO</code><span class="sig-paren">(</span><em>measuring_card</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.DialogPortDO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dialog to create a instance of the class
+PortDO. The dialog checks all attributes and make sure
+that a invalid port can not created.</p>
+<dl class="method">
+<dt id="measuring_card.ports.DialogPortDO.load">
+<code class="descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.DialogPortDO.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a instance of the class PortAI with the attributes             of the view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Digital output port with the attributes.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#measuring_card.ports.PortDO" title="measuring_card.ports.PortDO">PortDO</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.ports.DialogPortDO.open_dialog">
+<code class="descname">open_dialog</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.DialogPortDO.open_dialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open the dialog to input the values for the port.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True, if the user want create a port, False otherwise</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="measuring_card.ports.InputPort">
+<em class="property">class </em><code class="descclassname">measuring_card.ports.</code><code class="descname">InputPort</code><span class="sig-paren">(</span><em>board</em>, <em>port_id</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.InputPort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base-class for the input ports.</p>
+<dl class="method">
+<dt id="measuring_card.ports.InputPort.record_port">
+<code class="descname">record_port</code><span class="sig-paren">(</span><em>volt_interval</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.InputPort.record_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads in the electrical voltage and transforms         the value with the scale factor and the offset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>volt_interval</strong> (<em>int</em>) &#8211; Interval of the electrical voltage of the machine</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The value of the machine</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">ValueError</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="measuring_card.ports.OutputPort">
+<em class="property">class </em><code class="descclassname">measuring_card.ports.</code><code class="descname">OutputPort</code><span class="sig-paren">(</span><em>board</em>, <em>port_id</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.OutputPort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base-class for the output ports.</p>
+<dl class="method">
+<dt id="measuring_card.ports.OutputPort.trigger">
+<code class="descname">trigger</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.OutputPort.trigger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Triggers a signal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<em>int</em>) &#8211; Volt value in bits (0-255)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the signal was sent, False otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">ValueError, ctypes.ArgumentError</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="measuring_card.ports.Port">
+<em class="property">class </em><code class="descclassname">measuring_card.ports.</code><code class="descname">Port</code><span class="sig-paren">(</span><em>board</em>, <em>port_id</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.Port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for the ports. Every port must have a id , the id
+of the measuring card and know whether it is a input-port.</p>
+<dl class="staticmethod">
+<dt id="measuring_card.ports.Port.load">
+<em class="property">static </em><code class="descname">load</code><span class="sig-paren">(</span><em>args</em>, <em>card</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.Port.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a instance with the given attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>args</strong> (<em>Dictionary</em>) &#8211; Attributes which are saved in the json-file</li>
+<li><strong>card</strong> (<a class="reference internal" href="#measuring_card.card.MeasuringCard" title="measuring_card.card.MeasuringCard"><em>MeasuringCard</em></a>) &#8211; Measuring card of the experiment</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Instance with the loaded attributes</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#measuring_card.ports.Port" title="measuring_card.ports.Port">Port</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.ports.Port.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.Port.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the port as a dictionary for a JSON file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary with all attributes of the port</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="measuring_card.ports.PortAI">
+<em class="property">class </em><code class="descclassname">measuring_card.ports.</code><code class="descname">PortAI</code><span class="sig-paren">(</span><em>board</em>, <em>port_id</em>, <em>scale_factor</em>, <em>offset</em>, <em>name</em>, <em>edit_dialog=None</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.PortAI" title="Permalink to this definition">¶</a></dt>
+<dd><p>PortAI represents a analog input port. The class 
+provide a method to read the analog input of the port 
+and transform the value with the given scale-factor and the offset</p>
+<dl class="staticmethod">
+<dt id="measuring_card.ports.PortAI.load">
+<em class="property">static </em><code class="descname">load</code><span class="sig-paren">(</span><em>args</em>, <em>card</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.PortAI.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a instance with the given attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>args</strong> (<em>Dictionary</em>) &#8211; Attributes which are saved in the json-file</li>
+<li><strong>card</strong> (<a class="reference internal" href="#measuring_card.card.MeasuringCard" title="measuring_card.card.MeasuringCard"><em>MeasuringCard</em></a>) &#8211; Measuring card of the experiment</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Instance with the given attributes</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#measuring_card.ports.PortAI" title="measuring_card.ports.PortAI">PortAI</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.ports.PortAI.record_port">
+<code class="descname">record_port</code><span class="sig-paren">(</span><em>volt_interval=1</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.PortAI.record_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the electrical voltage and transforms            the value with the scale factor and the offset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>volt_interval</strong> (<em>int.</em>) &#8211; Interval of the electrical voltage of the machine</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The value of the machine</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.ports.PortAI.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.PortAI.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the port as a dictionary for a JSON file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary with all attributes of the port</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="measuring_card.ports.PortDO">
+<em class="property">class </em><code class="descclassname">measuring_card.ports.</code><code class="descname">PortDO</code><span class="sig-paren">(</span><em>board</em>, <em>port_id</em>, <em>name</em>, <em>edit_dialog</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.PortDO" title="Permalink to this definition">¶</a></dt>
+<dd><p>PortDO represents a digital output port. The class 
+provide a method to trigger a digital signal.</p>
+<dl class="staticmethod">
+<dt id="measuring_card.ports.PortDO.load">
+<em class="property">static </em><code class="descname">load</code><span class="sig-paren">(</span><em>args</em>, <em>card</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.PortDO.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a instance with the given attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>args</strong> (<em>Dictionary</em>) &#8211; Attributes which are saved in the json-file</li>
+<li><strong>card</strong> (<a class="reference internal" href="#measuring_card.card.MeasuringCard" title="measuring_card.card.MeasuringCard"><em>MeasuringCard</em></a>) &#8211; Measuring card of the experiment</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Instance with the loaded attributes</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#measuring_card.ports.PortDO" title="measuring_card.ports.PortDO">PortDO</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.ports.PortDO.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.PortDO.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the port as a dictionary for a JSON file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary with all attributes of the port</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dictionary</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="measuring_card.ports.PortDO.trigger">
+<code class="descname">trigger</code><span class="sig-paren">(</span><em>reset_time=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#measuring_card.ports.PortDO.trigger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Triggers a digital signal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reset_time</strong> (<em>float.</em>) &#8211; Time (in seconds) to pass until reset the value.             If the reset_time will not set, the trigger will change             the electrical voltage.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the signal was sent, False otherwise.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">ValueError, ctypes.ArgumentError</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-server.ftp_service">
+<span id="server"></span><h2>server<a class="headerlink" href="#module-server.ftp_service" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-server.ldap_server"></span><span class="target" id="module-server.projecthandler"></span><p>Created on 17.11.2017</p>
+<p>&#64;author: mkennert</p>
+<span class="target" id="module-server.smrc_server"></span><dl class="class">
+<dt id="server.smrc_server.SMRCConncetion">
+<em class="property">class </em><code class="descclassname">server.smrc_server.</code><code class="descname">SMRCConncetion</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="headerlink" href="#server.smrc_server.SMRCConncetion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles the connection to the server</p>
+<dl class="method">
+<dt id="server.smrc_server.SMRCConncetion.load_properties">
+<code class="descname">load_properties</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#server.smrc_server.SMRCConncetion.load_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the properties of the server. The method reads 
+the properties from the configuration file. If the file 
+does not exist, the method will create a new configuration
+file with the default properties.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Properties of the server</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="server.smrc_server.SMRCServer">
+<em class="property">class </em><code class="descclassname">server.smrc_server.</code><code class="descname">SMRCServer</code><span class="sig-paren">(</span><em>smrc_model</em><span class="sig-paren">)</span><a class="headerlink" href="#server.smrc_server.SMRCServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manages the communication with the SMRCServer.</p>
+<dl class="method">
+<dt id="server.smrc_server.SMRCServer.check_project">
+<code class="descname">check_project</code><span class="sig-paren">(</span><em>project</em><span class="sig-paren">)</span><a class="headerlink" href="#server.smrc_server.SMRCServer.check_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether the project name does already exists</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="server.smrc_server.SMRCServer.create_serie">
+<code class="descname">create_serie</code><span class="sig-paren">(</span><em>exp_type</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#server.smrc_server.SMRCServer.create_serie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a serie on the server</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>exp_type</strong> (<em>string</em>) &#8211; Name of the experiment-type</li>
+<li><strong>name</strong> (<em>string</em>) &#8211; Name of the experiment</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="server.smrc_server.SMRCServer.get_properties">
+<code class="descname">get_properties</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#server.smrc_server.SMRCServer.get_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the connection-properties of the server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">(hostname, port)</td>
+</tr>
+</tbody>
+</table>
+<p>:rtype:Tuple(string, int)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="server.smrc_server.SMRCServer.is_experiment">
+<code class="descname">is_experiment</code><span class="sig-paren">(</span><em>fpath</em><span class="sig-paren">)</span><a class="headerlink" href="#server.smrc_server.SMRCServer.is_experiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether the given filepath is a path of a experiment</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fpath</strong> (<em>string</em>) &#8211; Path to the selected folder</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the path belongs to a experiment, False otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="server.smrc_server.SMRCServer.is_serie">
+<code class="descname">is_serie</code><span class="sig-paren">(</span><em>fpath</em><span class="sig-paren">)</span><a class="headerlink" href="#server.smrc_server.SMRCServer.is_serie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether the given filepath is a path of a serie</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fpath</strong> (<em>string</em>) &#8211; Path to the selected folder</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the path belongs to a experiment, False otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="server.smrc_server.SMRCServer.load_project">
+<code class="descname">load_project</code><span class="sig-paren">(</span><em>project</em><span class="sig-paren">)</span><a class="headerlink" href="#server.smrc_server.SMRCServer.load_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the project from the server</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>project</strong> (<em>string</em>) &#8211; Name of the project</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="server.smrc_server.SMRCServer.send_experiment_properties">
+<code class="descname">send_experiment_properties</code><span class="sig-paren">(</span><em>project</em><span class="sig-paren">)</span><a class="headerlink" href="#server.smrc_server.SMRCServer.send_experiment_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send the properties to server</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="server.smrc_server.SMRCServer.update_projects">
+<code class="descname">update_projects</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#server.smrc_server.SMRCServer.update_projects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the projects in the projecthandler</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="server.smrc_server.SMRCServer.update_properties">
+<code class="descname">update_properties</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#server.smrc_server.SMRCServer.update_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the properties of the server and save them.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="server.smrc_server.SMRCServer.update_series">
+<code class="descname">update_series</code><span class="sig-paren">(</span><em>experiment</em><span class="sig-paren">)</span><a class="headerlink" href="#server.smrc_server.SMRCServer.update_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the series of the experiment-type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>experiment</strong> (<em>string</em>) &#8211; Experiment-type</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">All series of the experiment-type</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="server.smrc_server.SMRCServer.upload_image">
+<code class="descname">upload_image</code><span class="sig-paren">(</span><em>img_name</em>, <em>experiment</em><span class="sig-paren">)</span><a class="headerlink" href="#server.smrc_server.SMRCServer.upload_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uploads the given image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>img_name</strong> (<em>string</em>) &#8211; Name of the image</li>
+<li><strong>experiment</strong> (<em>string</em>) &#8211; Related project</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="server.smrc_server.ServerDialog">
+<em class="property">class </em><code class="descclassname">server.smrc_server.</code><code class="descname">ServerDialog</code><a class="headerlink" href="#server.smrc_server.ServerDialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>not finished yet</p>
+<dl class="method">
+<dt id="server.smrc_server.ServerDialog.get_attributes">
+<code class="descname">get_attributes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#server.smrc_server.ServerDialog.get_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>not finished yet</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="server.smrc_server.ServerDialog.set_attributes">
+<code class="descname">set_attributes</code><span class="sig-paren">(</span><em>host</em>, <em>port</em><span class="sig-paren">)</span><a class="headerlink" href="#server.smrc_server.ServerDialog.set_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>not finished yet</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tutorial.html" title="Anwendungsverlauf"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SmartRec 0.1 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Marcel Kennert.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
+    </div>
+  </body>
+</html>
