@@ -165,7 +165,7 @@ class SFTPConnection(tr.HasTraits):
     username = tr.Str('ftp', desc="username", label="username", )
 
     # tr.Password hides the entered password
-    password = tr.Password('!mb1@FTP7', desc="password", label="password", )
+    password = tr.Password('', desc="password", label="password", )
 
     test_types = tr.Enum('Cylinder-Tests', 'Beam-End-Tests', 'Stress-Redistribution-Tests')
 
